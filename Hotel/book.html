@@ -23,10 +23,10 @@
         Home
       </a>
       <a href="rooms.html" class="nav__link">
-        Rooms
+        Rooms&#160&&#160Facility
       </a>
       <a href="book.html" class="nav__link">
-        Book now
+        Book&#160now
       </a>
       <a href="#contact" class="nav__link">
         Contact
@@ -34,9 +34,72 @@
     </nav>
 
     <main class="main">
-      <article class="main__bookingForm">
 
-      </article>
+      <div class="main__bookingPageContainer c-flex" id="bookingSheet">
+
+        <h2 class="main__bookingTitle">
+          Booking page
+        </h2>
+        <p class="main__bookingText">
+          Here you may send your booking requests. You may also <a href="#contact" class="call whiteText">call</a> us at any time to book, or confirm your booking
+        </p>
+
+        <form class="main__bookingForm" action="Results.html" method="GET"> 
+          <div class="main__formContainer c-flex">
+            <section class="formSection c-flex">
+              <label for="firstname">First name:</label>
+              <input type="text" id="firstname" placeholder="Enter your first name" required>
+            
+              <label for="lastname">Last name:</label>
+              <input type="text" id="lastname" placeholder="Enter your last name" required>
+              
+              <label for="arrival">Arriving at:</label>
+              <input type="date" id="arrival" placeholder="Enter arrival date" required>
+              
+              <label for="leaving">Leaving at:</label>
+              <input type="date" id="leaving" placeholder="Enter leaving date" required>
+            
+              <label for="textArea">Allergies/Wishes:</label>
+            
+              <textarea type="textarea" id="textArea" name="Wishes"></textarea>
+            </section>
+            <!-- <div class="main__form__room"> -->
+              <section class="main__roomPreviews r-flex main__roomBookingFlex">
+                <article class="main__room c-flex">
+                  <img src="assets/photos/01-day.jpg" alt="">
+                  <h4>Standard</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+                  <p class="main__roomPrice">$69.69 / night</p>
+                </article>
+                <article class="main__room c-flex">
+                  <img src="assets/photos/02-day.jpg" alt="">
+                  <h4>Superior</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+                  <p class="main__roomPrice">$69.69 / night</p>
+                </article>
+                <article class="main__room c-flex">
+                  <img src="assets/photos/03-day.jpg" alt="">
+                  <h4>Premium</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+                  <p class="main__roomPrice">$69.69 / night</p>
+                </article>
+              </section>
+
+              <div class="main__form__room r-flex">
+                <label for="standard">Standard </label>
+                <input type="radio" id="standard" name="room" placeholder="Enter leaving date" value="standard" required>
+                
+                <label for="superior">Superior </label>
+                <input type="radio" id="superior" name="room" placeholder="Enter leaving date" value="superior" required>
+                
+                <label for="premium">Premium</label>
+                <input type="radio" id="premium" name="room" placeholder="Enter leaving date" value="premium" required>
+              </div>
+            <input type="reset" id="reset" placeholder="Reset">
+            <input type="submit" id="submit" placeholder="Submit">
+          </div>
+        </form>
+      </div>
 
     </main>
     
@@ -62,7 +125,7 @@
         <h3 class="footer__title whiteText">
           Social Media
         </h3>
-        <a href="book.html" class="footer__socialMediaLinks footer__text">
+        <a href="#bookingSheet" class="footer__socialMediaLinks footer__text">
           Ye, we dont really do social media
         </a>
       </article>

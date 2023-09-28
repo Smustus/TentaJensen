@@ -6,9 +6,9 @@
   --darker: hsla(0, 0%, 0%, 0.8);   
   --black: hsla(0, 0%, 0%, 0.9);
   --discount: hsl(0, 100%, 30%);
-  --coral: lightcoral;
   --davygray: hsl(310, 3%, 34%);
   --lightblue: #8DA9C4;
+  --darkblue: #526679;
 }
 
 * {
@@ -25,12 +25,6 @@ html {
 body {
   min-width: 100vw;
   min-height: 100vh;
-  /* width: 100vw;
-  height: 100vh; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-  background-color: var(--coral);
   background-color: var(--lightblue);
 }
 
@@ -61,6 +55,11 @@ a {
   color: var(--darker);
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover {
+  color: hsla(0, 0%, 100%, 0.658);
+  /* text-shadow: -5px 5px 5px rgb(94, 94, 94); */
 }
 
 p {
@@ -134,11 +133,11 @@ p {
 
 .navigation {
   grid-area: navigation;
-  height: 5rem;
-  /* background-color: var(--lighter); */
+  height: 4rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  text-align: center;
 }
 
 .main {
@@ -149,23 +148,22 @@ p {
 
 .aside {
   grid-area: aside;
-  min-height: 20rem;
+  min-height: 14rem;
   background-color: var(--lighter);
+  padding: 1rem;
 }
 
-.mainRooms {
+.mainRoomsPage {
   grid-area: mainRooms;
   min-height: 20rem;
-  /* background-color: var(--lighter); */
 }
 
 .footer {
   grid-area: footer;
-  background-color: var(--davygray);
+  background-color: #60788d;
   color: var(--white);
   padding: 5%;
   justify-content: space-around;
-  /* width: 1840px; */
 }
 
 /* HEADER ELEMENT STYLINGS */
@@ -179,12 +177,11 @@ p {
 }
 
 
-
-
 /* NAV ELEMENT STYLINGS */
 .nav__link {
-  margin: 0 15% 0 15%;
-  height: 100%;
+  padding: 0 10% 0 10%;
+  margin: 0 5% 0 5%;
+  /* height: 100%; */
   display: flex;
   align-items: center;
 }
@@ -192,8 +189,6 @@ p {
 .nav__logo {
   height: 70%;
 }
-
-
 
 /* MAIN ELEMENT STYLINGS */
 .main__welcome {
@@ -211,7 +206,6 @@ p {
 .main__welcomeText {
   padding: 2% 15%;
   color: var(--dark);
-  
 }
 
 .main__roomPreviews {
@@ -251,7 +245,6 @@ p {
   color: var(--discount);
 }
 
-
 .main__linkRooms {
   background-color: var(--lightblue);
   width: 100%;
@@ -260,19 +253,147 @@ p {
   text-align: center;
   border: 3px solid #83a5c4;
   text-shadow: 0px 3px 5px rgb(88, 88, 88);
+  color: var(--dark);
+}
+/* MAIN ROOMS AND FACILITY PAGE */
+.mainRooms {
+  border-top: 3px solid #83a5c4;
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+}
+
+.main__roomSelection {
+  grid-area: 1 / 1 / span 1 / span 6;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  border-top: 3px solid #83a5c4;
+}
+
+.main__roomsPage {
+  grid-area: 2 / 1 / auto / span 6;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__roomsPage ul {
+  
+}
+
+.main__roomsPage li {
+  list-style: none;
+}
+
+.main__roomFilter {
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 90%;
+}
+
+.main__roomFilter label {
+  margin: 5% 0.5% 5% 10%;
+}
+
+.main__roomFilterbtn {
+  background-color: #496f92;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  margin: 1% 0 1% 0;
+  padding: 21px;
+  box-shadow: 1px 1px 5px #3a5774;
+  cursor: pointer;
+}
+
+.main__roomResetbtn {
+  background-color: #496f92;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  margin: 1% 0 1% 5%;
+  padding: 12px;
+  box-shadow: 1px 1px 5px #3a5774;
+  cursor: pointer;
+}
+
+.main__roomFilterbtn:hover, .main__roomResetbtn:hover {
+  background-color: #5e8cb8;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 2px 5px #51779e;
 }
 
 
 
+/* MAIN BOOKING PAGE */
+.main__bookingPageContainer {
+  /* justify-content: center; */
+  align-items: center;
+  padding: 4%;
+  border-top: 3px solid #83a5c4;
+}
+
+.main__formContainer {
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+
+.main__bookingTitle {
+  margin-bottom: 2%;
+}
+
+.main__roomBookingFlex {
+  padding: 2%;
+}
+
+.formSection input, .formSection label {
+  margin: 2%;
+}
+
+.main__form__room {
+  padding: 2%;
+  width: 100%;
+  justify-content: center;
+}
+
+.main__form__room label, input {
+  padding: 0.6%;
+}
+
+#reset, #submit {
+  background-color: #496f92;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  margin: 1% 0 1% 0;
+  padding: 21px;
+  box-shadow: 1px 1px 5px #3a5774;
+  cursor: pointer;
+}
+
+#reset:hover, #submit:hover {
+  background-color: #5e8cb8;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  margin: 1% 0 1% 0;
+  padding: 21px;
+  box-shadow: 1px 2px 5px #51779e;
+}
 
 /* FOOTER ELEMENT STYLINGS */
 .footer__title, .footer__text {
-  /* text-decoration: underline; */
   margin-bottom: 3%;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
 .footer__socialMediaLinks {
-  /* text-decoration: underline; */
   color: var(--white);
 }

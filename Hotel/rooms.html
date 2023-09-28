@@ -23,10 +23,10 @@
         Home
       </a>
       <a href="rooms.html" class="nav__link">
-        Rooms
+        Rooms&#160&&#160Facility
       </a>
       <a href="book.html" class="nav__link">
-        Book now
+        Book&#160now
       </a>
       <a href="#contact" class="nav__link">
         Contact
@@ -34,14 +34,114 @@
     </nav>
 
 
-    <main class="mainRooms c-flex">
+    <main class="mainRoomsPage">
 
       <aside class="aside main__roomSelection">
 
+        <h3>Filter rooms</h3>
+        <form action="" method="GET" class="main__roomFilter r-flex">
+          <label for="wifi">Free Wi-fi</label>
+          <input type="checkbox" id="wifi" class="main__criteriaRoom">
+          <label for="fruit">Fruit bowl upon arrival</label>
+          <input type="checkbox" id="fruit" class="main__criteriaRoom">
+          <label for="terrace">Private terrace</label>
+          <input type="checkbox" id="terrace" class="main__criteriaRoom">
+          <label for="bible">Bible included</label>
+          <input type="checkbox" id="bible" class="main__criteriaRoom">
+          <label for="parking">Free parking</label>
+          <input type="checkbox" id="parking" class="main__criteriaRoom">
+          <input type="reset" class="main__roomResetbtn">
+        </form>
+        <button class="main__roomFilterbtn" onclick="">Filter</button>
+        
       </aside>
 
-      <article class="main__rooms">
+      <article class="main__roomsPage">
+          <section class="main__room main__roomExtended main__roomOne">
+            <img src="assets/photos/04-day.jpg" alt="">
+            <h3>Standard</h3>
 
+            <ul class="main__roomInfoContainer">
+              <li>
+                1 Kingsize double bed + soda bed
+              </li>
+              <li>
+                46 sqm
+              </li>
+              <li>
+                Free Wi-fi
+              </li>
+              <li>
+                Free parking
+              </li>
+                Unlimited cats
+              <li>
+                Private terrace
+              </li>
+              <li>
+                Free bible, to educate your lemming kids
+              </li>
+            </ul>
+            <button class="main_roomBookBtn">Check availability</button>
+          </section>
+          <section class="main__room main__roomExtended main__roomTwo">
+            <img src="assets/photos/04-day.jpg" alt="">
+            <h3>Superior</h3>
+
+            <ul class="main__roomInfoContainer">
+              <li>
+                1 Kingsize double bed + soda bed
+              </li>
+              <li>
+                56 sqm
+              </li>
+              <li>
+                Free Wi-fi
+              </li>
+              <li>
+                Free parking
+              </li>
+                Unlimited cats
+              <li>
+                Private terrace
+              </li>
+              <li>
+                Free bible, to educate your lemming kids
+              </li>
+            </ul>
+            <button class="main_roomBookBtn">Check availability</button>
+          </section>
+          <section class="main__room main__roomExtended main__roomThree">
+            <img src="assets/photos/04-day.jpg" alt="">
+            <h3>Premium</h3>
+
+            <ul class="main__roomInfoContainer">
+              <li>
+                1 Kingsize double bed + soda bed
+              </li>
+              <li>
+                56 sqm
+              </li>
+              <li>
+                Free Wi-fi
+              </li>
+              <li>
+                Free parking
+              </li>
+                Unlimited cats
+              <li>
+                Private terrace
+              </li>
+              <li>
+                Free bible, to educate your lemming kids
+              </li>
+              <li>
+                Fruit bowl upon arrival
+              </li>
+            </ul>
+            <button class="main_roomBookBtn">Check availability</button>
+          </section>
+         
       </article>
 
     </main>
