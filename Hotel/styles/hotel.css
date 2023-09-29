@@ -70,10 +70,15 @@ p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.6;
+  color: var(--dark);
 }
 
 .whiteText {
   color: var(--white);
+}
+
+.discount {
+  color: var(--discount);
 }
 
 .c-flex {
@@ -85,20 +90,14 @@ p {
   display: flex;
 }
 
-.w-full {
-  width: 100%;
-}
-
-.h-fit {
-  height: fit-content;
-}
-
 button, #reset, #submit, .main__roomResetBtn {
   background-color: var(--blueGreen);
   color: var(--white);
+  border: none;
+  cursor: pointer;
 }
 
-button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
+button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roomSelector__link:hover {
   background-color: #5e8cb8;
   box-shadow: 1px 2px 5px #51779e;
 }
@@ -180,14 +179,13 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 
 /* HEADER ELEMENT STYLINGS */
 .header__logo {
-  height: 100%;
+  height: 90%;
 }
 .header__title {
   width: 75%;
   padding: 5%;
   text-shadow: 1px 1px 5px rgb(228, 228, 228);
 }
-
 
 /* NAV ELEMENT STYLINGS */
 .nav__link {
@@ -197,11 +195,9 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
   align-items: center;
 }
 
-.nav__logo {
-  height: 70%;
-}
-
 /* MAIN ELEMENT STYLINGS */
+
+/* MAIN HOME ELEMENT STYLINGS */
 .main__welcome {
   align-items: center;
   border-top: 3px solid #83a5c4;
@@ -211,12 +207,11 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 .main__welcomeTitle {
   margin: 4% 15% 2% 15%;
   color: var(--dark);
-  text-shadow: 0px 5px 15px rgb(95, 95, 95);
+  text-shadow: 0px 5px 5px rgba(88, 88, 88, 0.6);
 }
 
 .main__welcomeText {
   padding: 2% 15%;
-  color: var(--dark);
 }
 
 .main__roomPreviews {
@@ -246,12 +241,10 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 .main__room p {
   margin: 2%;
   padding: 1%;
-  color: var(--dark);
 }
 
 .main__room .main__roomPrice {
   align-self: flex-end;
-  color: var(--discount);
 }
 
 .main__linkRooms {
@@ -261,19 +254,12 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
   padding: 1%;
   text-align: center;
   border: 3px solid var(--blueBoxShadow);
-  text-shadow: 0px 3px 5px rgb(88, 88, 88);
+  text-shadow: 0px 3px 5px rgba(88, 88, 88, 0.8);
   color: var(--dark);
 }
 
-/* MAIN ROOMS AND FACILITY PAGE */
-/* .mainRoomsContainer {
-  border-top: 3px solid var(--blueBoxShadow);
-  display:grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
-} */
-
-.main__roomSelection {
+/* MAIN ROOMS AND FACILITY ELEMENT STYLING */
+.main__roomSelectionFilter {
   grid-area: 1 / 1 / span 1 / span 6;
   display:flex;
   flex-direction:column;
@@ -289,6 +275,11 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
   width: 96%;
 }
 
+.main__roomSelectionFilter h3, .main__roomsPage h4 {
+  color: var(--dark);
+  text-shadow: 0px 3px 5px rgba(88, 88, 88, 0.555);
+}
+
 .main__roomFilter label {
   margin: 5% 0.5% 5% 5%;
 }
@@ -299,33 +290,55 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 
 .main__roomResetBtn {
   border-radius: 10px;
-  border: none;
   margin: 1% 0 1% 5%;
   padding: 12px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
-  cursor: pointer;
 }
 
 .main__roomFilterBtn {
   border-radius: 10px;
-  border: none;
   margin: 1% 0 1% 0;
   padding: 21px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
-  cursor: pointer;
 }
 
 .main__roomsPage {
   grid-area: 2 / 1 / auto / auto;
-  display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 3px solid var(--blueBoxShadow);
+  border-bottom: 3px solid var(--blueBoxShadow);
+}
+
+.main__roomTopInfo__links {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.main__roomSelector__link {
+  background-color: var(--blueGreen);
+  color: var(--white);
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 2% 1% 6% 1%;
+  padding: 20px;
+  box-shadow: 1px 1px 5px var(--darkBlueGreen);
+}
+
+.main__roomTopInfo {
+  width: 60%;
+  padding: 2%;
+  text-align: center;
+}
+
+.main__roomTopInfo p {
+  padding-top: 3%;
 }
 
 .main__roomExtended {
   background-color: var(--lighter);
   width: 80%;
-  /* max-width: 800px; */
+  min-width: 730px;
   margin: 2% 2% 2% 2%;
   padding: 1% 1%;
   border-radius: 25px;
@@ -334,23 +347,24 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 
 .main__roomImgAndList {
   height: 100%;
+  min-width: 350px;
 }
 
-.main__imgAndList img {
+.main__roomImgAndList img {
   width: 100%;
-  max-width: 120rem;
+  max-width: 110rem;
   border-radius: 15px 15px 15px 15px;
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
 
 .main__roomsPage ul {
-  padding: 1% 2% 0 2%;
+  margin: 1% 2% 0 3%;
   list-style: disc;
   font-weight: 600;
   font-size: 1.2rem;
 }
 
-.main__imgAndList h3 {
+.main__roomImgAndList h3 {
   width: 100%;
   margin: 2% 0%;
 }
@@ -359,6 +373,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
   background-color: var(--lighter);
   border-radius: 15px 15px 15px 15px;
   width: 100%;
+  min-width: 350px;
   height: 100%;
   margin: 0% 0% 0% 1%;
   padding: 1% 1%;
@@ -369,16 +384,15 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 .main__roomInfoAndBtn p {
   width: 100%;
   padding: 1% 1% 3% 1%;
+  margin-bottom: auto;
 }
 
 .main__roomAvailBtn {
   width: 90%;
-  justify-self: flex-end;
-  margin: 2% 0% 2% 2%;
+  /* justify-self: flex-end; */
+  margin: auto 0% 2% 2%;
   padding: 1.5% 2%;
   border-radius: 15px;
-  border: none;
-  cursor: pointer;
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
 
@@ -387,6 +401,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
   align-items: center;
   padding: 4%;
   border-top: 3px solid var(--blueBoxShadow);
+  border-bottom: 3px solid var(--blueBoxShadow);
 }
 
 .main__formContainer {
@@ -419,11 +434,9 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover {
 
 #reset, #submit {
   border-radius: 10px;
-  border: none;
   margin: 1% 0 1% 0;
   padding: 21px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
-  cursor: pointer;
 }
 
 /* FOOTER ELEMENT STYLINGS */
