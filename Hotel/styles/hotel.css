@@ -4,7 +4,6 @@
   --light: hsla(0, 0%, 100%, 0.7);  
   --dark: hsla(0, 0%, 0%, 0.6);   
   --darker: hsla(0, 0%, 0%, 0.8);   
-  --black: hsla(0, 0%, 0%, 0.9);
   --discount: hsl(0, 100%, 30%);
   --davygray: hsl(310, 3%, 34%);
   --lightblue: #8DA9C4;
@@ -18,16 +17,14 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
-  /* border: 1px dashed red; */
 }
 
 html {
   scroll-behavior: smooth;
-  min-width: 350px;
 }
 
 body {
-  min-width: 100vw;
+  width: max(100vw, 350px);
   min-height: 100vh;
   background-color: var(--lightblue);
 }
@@ -38,21 +35,17 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 1.5rem + 2vw , 3.5rem);
 }
-
 h2 {
-  font-size: 2.6rem;
+  font-size: clamp(2.2rem, 1.5rem + 2vw , 3.2rem);
 }
-
 h3 {
-  font-size: 2.2rem;
+  font-size: clamp(1.9rem, 1.2rem + 2vw , 2.9rem);
 }
-
 h4 {
-  font-size: 1.8rem;
+  font-size: clamp(1.7rem, 1rem + 2vw , 2.6rem);
 }
-
 a, li{
   color:hsl(0, 0%, 100%);
   text-decoration: none;
@@ -61,16 +54,15 @@ a, li{
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
-
 a:hover {
   color: hsla(0, 0%, 100%, 0.658);
 }
-
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.6;
   color: var(--dark);
+  font-size: (0.8rem, 0,9rem, 1rem);
 }
 
 .whiteText {
@@ -196,7 +188,6 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 }
 
 /* MAIN ELEMENT STYLINGS */
-
 /* MAIN HOMEPAGE ELEMENT STYLINGS */
 .main__welcome {
   align-items: center;
@@ -271,7 +262,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 .main__roomFilter {
   justify-content: center;
   align-items: center;
-  height: 4rem;
+  height: 5rem;
   width: 96%;
 }
 
@@ -291,14 +282,14 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 .main__roomResetBtn {
   border-radius: 10px;
   margin: 1% 0 1% 5%;
-  padding: 12px;
+  padding: 12px 24px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
 }
 
 .main__roomFilterBtn {
   border-radius: 10px;
   margin: 1% 0 1% 0;
-  padding: 21px;
+  padding: 21px 30px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
 }
 
@@ -345,14 +336,9 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
 
-.main__roomImgAndList {
-  height: 100%;
-  min-width: 350px;
-}
-
 .main__roomImgAndList img {
   width: 100%;
-  max-width: 110rem;
+  max-width: 150rem;
   border-radius: 15px 15px 15px 15px;
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
@@ -365,7 +351,6 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 }
 
 .main__roomImgAndList h3 {
-  width: 100%;
   margin: 2% 0%;
 }
 
@@ -374,7 +359,6 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   border-radius: 15px 15px 15px 15px;
   width: 100%;
   min-width: 350px;
-  height: 100%;
   margin: 0% 0% 0% 1%;
   padding: 1% 1%;
   align-items: center;
@@ -389,7 +373,6 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 
 .main__roomAvailBtn {
   width: 90%;
-  /* justify-self: flex-end; */
   margin: auto 0% 2% 2%;
   padding: 1.5% 2%;
   border-radius: 15px;
@@ -411,14 +394,18 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 }
 
 .main__bookingTitle {
-  margin-bottom: 2%;
+  margin-bottom: max(2%, 2vh);
 }
 
 .main__roomBookingFlex {
   padding: 2%;
 }
 
-.formSection input, .formSection label {
+.main__formSection {
+  width: max(20vw, 250px);
+}
+
+.main__formSection input, .main__formSection label {
   margin: 2%;
 }
 
@@ -426,15 +413,20 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   padding: 2%;
   width: 100%;
   justify-content: center;
+  font-size: clamp(1.24rem, 0.6rem + 1vw, 1.5rem);
 }
 
-.main__form__room label, input {
-  padding: 0.6%;
+.main__form__room label {
+  margin: 0 0 0 max(5%, 1.6vh);
+}
+
+.main__form__room input {
+  margin: 0 max(4%, 1vh) 0 max(0.1%, 0.5vh);
 }
 
 #reset, #submit {
   border-radius: 10px;
-  margin: 1% 0 1% 0;
+  margin: max(1%, 1vh) 0 max(1%, 1vh) 0;
   padding: 21px;
   box-shadow: 1px 1px 5px var(--darkBlueGreen);
 }
@@ -450,50 +442,11 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 }
 
 @media screen and (max-width: 960px) {
-  h1 {
-    font-size: 2.6rem;
-  }
-  
-  h2 {
-    font-size: 2.2rem;
-  }
-  
-  h3 {
-    font-size: 1.8rem;
-  }
-  
-  h4 {
-    font-size: 1.2rem;
-  }
-  
   a, li{
     font-size: 0.9rem;
   }
-  
   p {
     font-size: 0.9rem;
-  }
-
-  /* STRUCTURE&BLOCK STYLING @960 */
-  .wrapper {
-    min-width: 16rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-    "header header header header"
-    "navigation navigation navigation navigation"
-    "main main main main"
-    "footer footer footer footer";
-  }
-  
-  .wrapperRooms {
-    min-width: 16rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-    "header header header header"
-    "navigation navigation navigation navigation"
-    "aside aside aside aside"
-    "mainRoomsPage mainRoomsPage mainRoomsPage mainRoomsPage"
-    "footer footer footer footer";
   }
 
   /* HEADER ELEMENT STYLINGS @960 */
@@ -505,15 +458,11 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   .nav__link {
     padding: 0 5% 0 5%;
     margin: 0 2% 0% 2%;
-    display: flex;
-    align-items: center;
   }
 
   /* MAIN HOMEPAGE ELEMENT STYLINGS @960 */
   .main__roomPreviews {
-    justify-content: center;
     padding: 0% 0 6% 0;
-    width: 100%;
     flex-direction: column;
     align-items: center;
   }
@@ -525,35 +474,16 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 }
 
 @media screen and (max-width: 760px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 2.1rem;
-  }
-  
-  h3 {
-    font-size: 1.7rem;
-  }
-  
-  h4 {
-    font-size: 1.1rem;
-  }
-  
   a, li{
     font-size: 0.8rem;
   }
-  
   p {
     font-size: 0.8rem;
   }
+
   /* STRUCTURE&BLOCK STYLING @760 */
   .wrapper {
-    min-width: 15rem;
-    display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
     grid-template-areas: 
     "header"
     "navigation"
@@ -562,10 +492,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   }
   
   .wrapperRooms {
-    min-width: 14rem;
-    display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
     grid-template-areas: 
     "header"
     "navigation"
@@ -589,34 +516,18 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
     margin: 0 1% 0 1%;
   }
 
-  /* MAIN HOMEPAGE ELEMENT STYLINGS @760 */  
-  .main__welcomeTitle {
-    margin: 4% 15% 2% 15%;
-    color: var(--dark);
-    text-shadow: 0px 5px 5px rgba(88, 88, 88, 0.6);
-  }
-  
+  /* MAIN HOMEPAGE ELEMENT STYLINGS @760 */    
   .main__welcomeText {
     padding: 2% 15%;
   }
   
   .main__roomPreviews {
-    justify-content: center;
     padding: 2% 0 4% 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
   }
   
   .main__room {
-    background-color: var(--lighter);
-    width: 25%;
-    max-width: 500px;
     min-width: 400px;
-    margin: 0% 0.6% 3% 0.6%;
-    align-items: center;
-    border-radius: 15px;
-    box-shadow: 0px 6px 10px var(--blueBoxShadow);
+    border-radius: 18px;
   }
   
   .main__linkRooms {
@@ -637,10 +548,9 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   }
 
   .main__roomExtended {
-    width: 80%;
     min-width: 450px;
+    border-radius: 22px;
     flex-direction: column;
-    align-items: center;
   }
 
   .main__roomImgAndList {
@@ -676,11 +586,15 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   }
 
   .main__roomFilterBtn {
-    padding: 18px;
+    padding: 18px 24px;
   }
 
   .main__roomExtended {
     min-width: 400px;
+  }
+
+  .main__roomTopInfo {
+    width: 82%;
   }
 }
 
@@ -704,6 +618,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   }
   .header__title {
     width: 85%;
+    text-align: center;
   }
 
   /* MAIN HOMEPAGE ELEMENT STYLINGS @460 */  
@@ -732,12 +647,12 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
 
   .main__roomExtended {
     width: 86%;
-    min-width: 340px;
+    min-width: 330px;
     border-radius: 19px;
   }
 
   .main__roomImgAndList {
-    min-width: 330px;
+    min-width: 300px;
   }
 
   .main__roomsPage ul {
@@ -749,7 +664,7 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   }
 
   .main__roomInfoAndBtn {
-    min-width: 330px;
+    min-width: 300px;
   }
 
   .main__roomInfoAndBtn p {
@@ -759,5 +674,4 @@ button:hover, #reset:hover, #submit:hover, .main__roomResetBtn:hover, .main__roo
   .footer {
     flex-direction: column;
   }
-  
 }
