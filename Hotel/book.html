@@ -21,7 +21,6 @@
 
     <nav class="navigation">
       <a href="home.html" class="navigation__link">
-        <!-- <img src="assets/logo/bonz.ai-logo-white-symbol.png" alt="Home" class="nav__logo"> -->
         Home
       </a>
       <a href="rooms.html" class="navigation__link">
@@ -46,8 +45,8 @@
           Here you may send your booking requests. You may also <a href="#contact" class="call whiteText">call</a> us at any time to book, or confirm your booking
         </p>
 
-        <form class="bookingContainer__form c-flex" action="Results.html" method="GET"> 
-          <section class="form__textDate c-flex">
+        <form class="bookingForm c-flex" action="Results.html" method="GET"> 
+          <section class="bookingForm__textDate c-flex">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" placeholder="Enter your first name" required>
           
@@ -85,7 +84,7 @@
             </article>
           </section>
 
-          <div class="form__roomOption r-flex">
+          <div class="bookingForm__roomOption r-flex">
             <label for="standard">Standard </label>
             <input type="radio" id="standard" name="room" placeholder="Enter leaving date" value="standard" required>
             
@@ -95,8 +94,8 @@
             <label for="premium">Premium</label>
             <input type="radio" id="premium" name="room" placeholder="Enter leaving date" value="premium" required>
           </div>
-          <input type="reset" id="reset" class="resetBtn" placeholder="Reset">
-          <input type="submit" id="submit" class="submitBtn" placeholder="Submit">
+          <input type="reset" id="reset" class="bookingForm__resetBtn resetBtn" placeholder="Reset">
+          <input type="submit" id="submit" class="bookingForm__submitBtn submitBtn" placeholder="Submit">
         </form>
       </section>
 
@@ -121,7 +120,7 @@
         </p>
       </article>
       <article class="socialMedia">
-        <h3 class="contact__title whiteText">
+        <h3 class="contact__title socialMedia__title whiteText">
           Social Media
         </h3>
         <a href="#bookingSheet" class="socialMedia__link contact__text">

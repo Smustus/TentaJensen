@@ -193,7 +193,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
 
 /* MAIN ELEMENT STYLINGS */
 /* MAIN HOMEPAGE ELEMENT STYLINGS */
-.main__welcome {
+.welcome {
   align-items: center;
   border-top: 3px solid var(--blueBoxShadow);
   text-align: center;
@@ -329,7 +329,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   padding-top: 3%;
 }
 
-.roomPreview__card {
+.largeRoomPreview {
   background-color: var(--lighter);
   width: 80%;
   min-width: 730px;
@@ -339,7 +339,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
 
-.card__imgAndList img {
+.largeRoomPreview__imgAndList img {
   width: 100%;
   max-width: 150rem;
   border-radius: 15px 15px 15px 15px;
@@ -353,11 +353,11 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   font-size: 1.2rem;
 }
 
-.card__imgAndList h3 {
+.largeRoomPreview__imgAndList h3 {
   margin: 2% 0%;
 }
 
-.card__textAndBtn {
+.largeRoomPreview__textAndBtn {
   background-color: var(--lighter);
   border-radius: 15px 15px 15px 15px;
   width: 100%;
@@ -368,13 +368,13 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   box-shadow: 0px 6px 10px var(--blueBoxShadow);
 }
 
-.card__textAndBtn p {
+.largeRoomPreview__textAndBtn p {
   width: 100%;
   padding: 1% 1% 3% 1%;
   margin-bottom: auto;
 }
 
-.card__availBtn {
+.largeRoomPreview__availBtn {
   width: 90%;
   margin: auto 0% 2% 2%;
   padding: 1.5% 2%;
@@ -394,7 +394,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   margin-bottom: max(2%, 2vh);
 }
 
-.bookingContainer__form {
+.bookingForm {
   justify-content: center;
   align-items: center;
   margin: 2%;
@@ -404,26 +404,26 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   padding: 2%;
 }
 
-.form__textDate {
+.bookingForm__textDate {
   width: max(20vw, 250px);
 }
 
-.form__textDate input, .form__textDate label {
+.bookingForm__textDate input, .bookingForm__textDate label {
   margin: 2%;
 }
 
-.form__roomOption {
+.bookingForm__roomOption {
   padding: 2%;
   width: 100%;
   justify-content: center;
   font-size: clamp(1.24rem, 0.6rem + 1vw, 1.5rem);
 }
 
-.form__roomOption label {
+.bookingForm__roomOption label {
   margin: 0 0 0 max(5%, 1.6vh);
 }
 
-.form__roomOption input {
+.bookingForm__roomOption input {
   margin: 0 max(4%, 1vh) 0 max(0.1%, 0.5vh);
 }
 
@@ -555,25 +555,25 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     margin: 5% 4% 5% 0%
   }
 
-  .roomPreview__card {
+  .largeRoomPreview {
     min-width: 450px;
     border-radius: 22px;
     flex-direction: column;
   }
 
-  .card__imgAndList {
+  .largeRoomPreview__imgAndList {
     margin-bottom: 2%;
   }
 
-  .card__imgAndList h3 {
+  .largeRoomPreview__imgAndList h3 {
     margin: 1.5% 1%;
   }
 
-  .card__textAndBtn {
+  .largeRoomPreview__textAndBtn {
     margin: 0%;
   }
 
-  .card__textAndBtn p {
+  .largeRoomPreview__textAndBtn p {
     padding: 1% 2% 3% 2%;
   }
 }
@@ -608,7 +608,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     padding: 18px 24px;
   }
 
-  .roomPreview__card {
+  .largeRoomPreview {
     min-width: 400px;
   }
 
@@ -678,13 +678,13 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     flex-wrap: wrap;
   }
 
-  .roomPreview__card {
+  .largeRoomPreview {
     width: 86%;
     min-width: 330px;
     border-radius: 19px;
   }
 
-  .card__imgAndList {
+  .largeRoomPreview__imgAndList {
     min-width: 300px;
   }
 
@@ -692,15 +692,15 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     margin: 1% 2% 0 4%;
   }
 
-  .card__imgAndList h3 {
+  .largeRoomPreview__imgAndList h3 {
     margin: 2% 0.4%;
   }
 
-  .card__textAndBtn {
+  .largeRoomPreview__textAndBtn {
     min-width: 300px;
   }
 
-  .card__textAndBtn p {
+  .largeRoomPreview__textAndBtn p {
     padding: 1% 2% 3% 2%;
   }
 
