@@ -4,128 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/hotel.css">
-  <title>Book</title>
+  <title>Booking</title>
 </head>
 <body>
 
   <div class="wrapper">
 
     <header class="header">
-      <img src="assets/logo/bonz.ai-logo-white-portrait-full.png" alt="" class="header__logo">
+      <figure class="header__logo">
+        <img src="assets/logo/bonz.ai-logo-white-portrait-full.png" alt="" class="">
+      </figure>
       <h1 class="header__title whiteText">
         When was the last time you relaxed for real?
       </h1>
     </header>
 
     <nav class="navigation">
-      <a href="home.html" class="nav__link">
+      <a href="home.html" class="navigation__link">
         <!-- <img src="assets/logo/bonz.ai-logo-white-symbol.png" alt="Home" class="nav__logo"> -->
         Home
       </a>
-      <a href="rooms.html" class="nav__link">
+      <a href="rooms.html" class="navigation__link">
         Rooms&#160&&#160Facility
       </a>
-      <a href="book.html" class="nav__link">
+      <a href="book.html" class="navigation__link">
         Book&#160now
       </a>
-      <a href="#contact" class="nav__link">
+      <a href="#contact" class="navigation__link">
         Contact
       </a>
     </nav>
 
     <main class="main">
 
-      <div class="main__bookingPageContainer c-flex" id="bookingSheet">
+      <section class="bookingContainer c-flex" id="bookingSheet">
 
-        <h2 class="main__bookingTitle">
+        <h2 class="bookingContainer__title">
           Booking page
         </h2>
-        <p class="main__bookingText">
+        <p class="bookingContainer__text">
           Here you may send your booking requests. You may also <a href="#contact" class="call whiteText">call</a> us at any time to book, or confirm your booking
         </p>
 
-        <form class="main__bookingForm" action="Results.html" method="GET"> 
-          <div class="main__formContainer c-flex">
-            <section class="main__formSection c-flex">
-              <label for="firstname">First name:</label>
-              <input type="text" id="firstname" placeholder="Enter your first name" required>
+        <form class="bookingContainer__form c-flex" action="Results.html" method="GET"> 
+          <section class="form__textDate c-flex">
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" placeholder="Enter your first name" required>
+          
+            <label for="lastname">Last name:</label>
+            <input type="text" id="lastname" placeholder="Enter your last name" required>
             
-              <label for="lastname">Last name:</label>
-              <input type="text" id="lastname" placeholder="Enter your last name" required>
-              
-              <label for="arrival">Arriving at:</label>
-              <input type="date" id="arrival" placeholder="Enter arrival date" required>
-              
-              <label for="leaving">Leaving at:</label>
-              <input type="date" id="leaving" placeholder="Enter leaving date" required>
+            <label for="arrival">Arriving at:</label>
+            <input type="date" id="arrival" placeholder="Enter arrival date" required>
             
-              <label for="textArea">Allergies/Wishes:</label>
-            
-              <textarea type="textarea" id="textArea" name="Wishes"></textarea>
-            </section>
-            <!-- <div class="main__form__room"> -->
-              <section class="main__roomPreviews r-flex main__roomBookingFlex">
-                <article class="main__room c-flex">
-                  <img src="assets/photos/05-day.jpg" alt="">
-                  <h4>Standard</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-                  <p class="main__roomPrice discount">$69.69 / night</p>
-                </article>
-                <article class="main__room c-flex">
-                  <img src="assets/photos/07-day.jpg" alt="">
-                  <h4>Superior</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-                  <p class="main__roomPrice discount">$69.69 / night</p>
-                </article>
-                <article class="main__room c-flex">
-                  <img src="assets/photos/09-day.jpg" alt="">
-                  <h4>Premium</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-                  <p class="main__roomPrice discount">$69.69 / night</p>
-                </article>
-              </section>
+            <label for="leaving">Leaving at:</label>
+            <input type="date" id="leaving" placeholder="Enter leaving date" required>
+          
+            <label for="textArea">Allergies/Wishes:</label>
+            <textarea type="textarea" id="textArea" name="Wishes"></textarea>
+          </section>
+  
+          <section class="smallRoomPreview r-flex main__roomBookingFlex">
+            <article class="smallRoomPreview__card c-flex">
+              <img src="assets/photos/05-day.jpg" alt="">
+              <h4>Standard</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+              <p class="smallRoomPreview__price discount">$69.69 / night</p>
+            </article>
+            <article class="smallRoomPreview__card c-flex">
+              <img src="assets/photos/07-day.jpg" alt="">
+              <h4>Superior</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+              <p class="smallRoomPreview__price discount">$69.69 / night</p>
+            </article>
+            <article class="smallRoomPreview__card c-flex">
+              <img src="assets/photos/09-day.jpg" alt="">
+              <h4>Premium</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
+              <p class="smallRoomPreview__price discount">$69.69 / night</p>
+            </article>
+          </section>
 
-              <div class="main__form__room r-flex">
-                <label for="standard">Standard </label>
-                <input type="radio" id="standard" name="room" placeholder="Enter leaving date" value="standard" required>
-                
-                <label for="superior">Superior </label>
-                <input type="radio" id="superior" name="room" placeholder="Enter leaving date" value="superior" required>
-                
-                <label for="premium">Premium</label>
-                <input type="radio" id="premium" name="room" placeholder="Enter leaving date" value="premium" required>
-              </div>
-            <input type="reset" id="reset" placeholder="Reset">
-            <input type="submit" id="submit" placeholder="Submit">
+          <div class="form__roomOption r-flex">
+            <label for="standard">Standard </label>
+            <input type="radio" id="standard" name="room" placeholder="Enter leaving date" value="standard" required>
+            
+            <label for="superior">Superior </label>
+            <input type="radio" id="superior" name="room" placeholder="Enter leaving date" value="superior" required>
+            
+            <label for="premium">Premium</label>
+            <input type="radio" id="premium" name="room" placeholder="Enter leaving date" value="premium" required>
           </div>
+          <input type="reset" id="reset" class="resetBtn" placeholder="Reset">
+          <input type="submit" id="submit" class="submitBtn" placeholder="Submit">
         </form>
-      </div>
+      </section>
 
     </main>
     
     <footer class="footer r-flex" id="contact">
-      <article class="footer__contact c-flex">
-        <h3 class="footer__title whiteText">
+      <article class="contact c-flex">
+        <h3 class="contact__title whiteText">
           Adress
         </h3>
-        <p class="footer__adress footer__text whiteText">
+        <p class="contact__adress contact__text whiteText">
           Bonz.ai resort
         </p>
-        <p class="footer__adress footer__text whiteText">
+        <p class="contact__adress contact__text whiteText">
           2023 Las Vegas Blvd S, Las Vegas, NV 99999, USA
         </p>
-        <p class="footer__phone footer__text whiteText">
+        <p class="contact__phone contact__text whiteText">
           +1 000-000-0000
         </p>
-        <p class="footer__copyright footer__text whiteText ">
+        <p class="contact_copyright contact__text whiteText ">
           © 2023 Charmville resort, Inc. 
         </p>
       </article>
-      <article class="footer__socialMedia">
-        <h3 class="footer__title whiteText">
+      <article class="socialMedia">
+        <h3 class="contact__title whiteText">
           Social Media
         </h3>
-        <a href="#bookingSheet" class="footer__socialMediaLinks footer__text">
+        <a href="#bookingSheet" class="socialMedia__link contact__text">
           Ye, we dont really do social media
         </a>
       </article>

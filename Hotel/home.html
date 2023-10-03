@@ -5,64 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/hotel.css">
   <!-- <script src="script/hotel.js" defer ></script> -->
-  <title>Charmville resort</title>
+  <title>Bonz.ai resort</title>
 </head>
 <body>
 
   <div class="wrapper">
     
     <header class="header">
-      <img src="assets/logo/bonz.ai-logo-white-portrait-full.png" alt="" class="header__logo">
+      <figure class="header__logo">
+        <img src="assets/logo/bonz.ai-logo-white-portrait-full.png" alt="" class="header__logo">
+      </figure>
       <h1 class="header__title whiteText">
         When was the last time you relaxed for real?
       </h1>
     </header>
 
     <nav class="navigation">
-      <a href="home.html" class="nav__link">
+      <a href="home.html" class="navigation__link">
         <!-- <img src="assets/logo/bonz.ai-logo-white-symbol.png" alt="Home" class="nav__logo"> -->
         Home
       </a>
-      <a href="rooms.html" class="nav__link">
+      <a href="rooms.html" class="navigation__link">
         Rooms&#160&&#160Facility
       </a>
-      <a href="book.html" class="nav__link">
+      <a href="book.html" class="navigation__link">
         Book&#160now
       </a>
-      <a href="#contact" class="nav__link">
+      <a href="#contact" class="navigation__link">
         Contact
       </a>
     </nav>
 
     <main class="main">
+
       <article class="main__welcome c-flex">
-        <h3 class="main__welcomeTitle">
+        <h3 class="welcome__title">
           Our facilities offers the best opportunities to completely shut out the outside world
         </h3>
-        <p class="main__welcomeText">
+        <p class="welcome__text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed voluptates ratione est qui excepturi quidem, labore perspiciatis cumque doloribus veniam repudiandae, eos fuga quos possimus quo beatae a sequi quasi iste? Incidunt, perferendis a ad eligendi deserunt porro earum.  Accusantium cupiditate alias assumenda incidunt voluptate vitae nobis quos odio quibusdam quidem omnis quis temporibus quod quae possimus fugit a, reiciendis harum. Eos ducimus commodi expedita amet pariatur consectetur alias nobis cumque temporibus fuga debitis, obcaecati ad officia, incidunt porro vero sequi, harum unde non illo eum vel aspernatur qui quaerat. Optio impedit, rerum nemo aut eaque sunt facere nobis quas excepturi culpa earum inventore dolor, vero mollitia, quo tempore quia adipisci numquam enim iste sint? Explicabo vel exercitationem nisi ad perferendis. Dolorem voluptatum dicta, iusto unde repellendus ipsam totam ducimus, rem repellat sunt aperiam nulla. Nam eligendi officiis ipsum quibusdam dolor laboriosam deleniti mollitia omnis, voluptatibus dolore rerum labore consequatur. Error voluptatem illum optio nobis excepturi neque facilis. Quos a, id corrupti cum inventore libero similique eius aliquam assumenda, neque odit facilis.
         </p>
-        <p class="main__welcomeText">
+        <p class="welcome__text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sed voluptates ratione est qui excepturi quidem, labore perspiciatis cumque doloribus veniam repudiandae, eos fuga quos possimus quo beatae a sequi quasi iste? Incidunt, perferendis a ad eligendi deserunt porro earum. Nemo, nulla consequuntur deleniti totam iste maxime nobis perferendis facilis vitae, aperiam voluptatum in.  eaque sunt facere nobis quas excepturi culpa earum inventore dolor, vero mollitia, quo tempore quia adipisci numquam enim iste sint? Explicabo vel exercitationem nisi ad perferendis. Dolorem voluptatum dicta, iusto unde repellendus ipsam totam ducimus, rem repellat sunt aperiam nulla. Nam eligendi officiis ipsum quibusdam dolor laboriosam deleniti mollitia omnis, optio aliquam commodi quam quasi nihil repellendus harum nisi quisquam similique maiores molestias voluptatibus dolore rerum labore consequatur. Error voluptatem illum optio nobis excepturi neque facilis. Quos a, id corrupti cum inventore libero similique eius aliquam assumenda, neque odit facilis.
         </p>
-        <section class="main__roomPreviews r-flex">
-          <article class="main__room c-flex">
+        <section class="smallRoomPreview r-flex">
+          <article class="smallRoomPreview__card c-flex">
             <img src="assets/photos/01-day.jpg" alt="">
             <h4>Standard</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-            <p class="main__roomPrice discount">$69.69 / night</p>
+            <p class="smallRoomPreview__price discount">$69.69 / night</p>
           </article>
-          <article class="main__room c-flex">
+          <article class="smallRoomPreview__card c-flex">
             <img src="assets/photos/02-day.jpg" alt="">
             <h4>Superior</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-            <p class="main__roomPrice discount">$69.69 / night</p>
+            <p class="smallRoomPreview__price discount">$69.69 / night</p>
           </article>
-          <article class="main__room c-flex">
+          <article class="smallRoomPreview__card c-flex">
             <img src="assets/photos/03-day.jpg" alt="">
             <h4>Premium</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum debitis temporibus similique?</p>
-            <p class="main__roomPrice discount">$69.69 / night</p>
+            <p class="smallRoomPreview__price discount">$69.69 / night</p>
           </article>
         </section>
         <a href="rooms.html" class="main__linkRooms">
@@ -73,28 +76,28 @@
     </main>
 
     <footer class="footer r-flex" id="contact">
-      <article class="footer__contact c-flex">
-        <h3 class="footer__title whiteText">
+      <article class="contact c-flex">
+        <h3 class="contact__title whiteText">
           Adress
         </h3>
-        <p class="footer__adress footer__text whiteText">
+        <p class="contact__adress contact__text whiteText">
           Bonz.ai resort
         </p>
-        <p class="footer__adress footer__text whiteText">
+        <p class="contact__adress contact__text whiteText">
           2023 Las Vegas Blvd S, Las Vegas, NV 99999, USA
         </p>
-        <p class="footer__phone footer__text whiteText">
+        <p class="contact__phone contact__text whiteText">
           +1 000-000-0000
         </p>
-        <p class="footer__copyright footer__text whiteText ">
+        <p class="contact_copyright contact__text whiteText ">
           © 2023 Charmville resort, Inc. 
         </p>
       </article>
-      <article class="footer__socialMedia">
-        <h3 class="footer__title whiteText">
+      <article class="socialMedia">
+        <h3 class="contact__title whiteText">
           Social Media
         </h3>
-        <a href="book.html" class="footer__socialMediaLinks footer__text">
+        <a href="book.html" class="socialMedia__link contact__text">
           Ye, we dont really do social media
         </a>
       </article>
@@ -102,6 +105,5 @@
 
   </div>
   
-  <script src="script/hotel.js"></script>
 </body>
 </html>
