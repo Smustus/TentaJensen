@@ -62,7 +62,7 @@ p {
   font-weight: 600;
   line-height: 1.6;
   color: var(--dark);
-  font-size: clamp(0.8rem, 0,9rem, 1rem);
+  font-size: clamp(0.8rem, 0.9rem, 1rem);
 }
 
 .whiteText {
@@ -656,7 +656,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   }
   
   .smallRoomPreview__card {
-    min-width: 300px;
+    min-width: 280px;
   }
   
   .main__linkRooms {
@@ -688,7 +688,7 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     min-width: 300px;
   }
 
-  .roomPreview ul {
+  .largeRoomPreview ul {
     margin: 1% 2% 0 4%;
   }
 
@@ -713,6 +713,15 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
     /* HEADER ELEMENT STYLINGS @416 */
     .header__logo {
       height: 53%;
+    }
+
+    /* MAIN BOOKING PAGE */    
+    .bookingForm__roomOption label {
+      margin: 0 1% 0 1%;
+    }
+    
+    .bookingForm__roomOption input {
+      margin: 0 3% 0 0;
     }
   }
 }
