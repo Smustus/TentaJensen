@@ -62,7 +62,6 @@ p {
   font-weight: 600;
   line-height: 1.6;
   color: var(--dark);
-  font-size: clamp(0.8rem, 0.9rem, 1rem);
 }
 
 .whiteText {
@@ -130,7 +129,6 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
   background-position: left top 60%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .navigation {
@@ -187,8 +185,6 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
 .navigation__link {
   padding: 0 10% 0 10%;
   margin: 0 5% 0 5%;
-  display: flex;
-  align-items: center;
 }
 
 /* MAIN ELEMENT STYLINGS */
@@ -256,8 +252,6 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
 /* MAIN ROOMS AND FACILITY ELEMENT STYLING */
 .filterRooms {
   grid-area: 1 / 1 / span 1 / span 6;
-  display:flex;
-  flex-direction:column;
   align-items: center;
   justify-content: center;
   border-top: 3px solid var(--blueBoxShadow);
@@ -477,13 +471,6 @@ button:hover, .resetBtn:hover, .submitBtn:hover, .filterRooms__resetBtn:hover, .
 }
 
 @media screen and (max-width: 760px) {
-  a, li{
-    font-size: 0.8rem;
-  }
-  p {
-    font-size: 0.8rem;
-  }
-
   /* STRUCTURE&BLOCK STYLING @760 */
   .wrapper {
     grid-template-columns: 1fr;
