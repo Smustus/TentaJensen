@@ -9,8 +9,6 @@ body {
   min-width: 350px;
   height: 100vh;
   font-family: sans-serif;
-  /* background: rgb(23,24,51);
-  background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%); */
 }
 
 h1 {
@@ -41,6 +39,7 @@ p {
   background: rgb(23,24,51);
   background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%);
 }
+
 /* Header element styles */
 .header {
   display: flex;
@@ -50,7 +49,12 @@ p {
   margin: 4% 3% 0% 0%;
 }
 
+.header_title {
+  font-size: 3rem;
+}
+
 .header_subtitle {
+  font-size: 2rem;
   text-indent: 5%;
 }
 
@@ -91,13 +95,12 @@ p {
 .main {
   display: flex;
   justify-content: space-evenly;
-  height: 80%;
+  height: 70%;
   width: 100%;
 }
 
 .main_planets {
   display: flex;
-  /* justify-content: space-between; */
   transform: translateX(-0%);
   height: 80%;
   width: 100%;
@@ -115,7 +118,7 @@ p {
   height: clamp(375px, 355px + 27vw, 750px);
   min-width: clamp(125px, 100px + 10vw, 250px);
   border-radius: 50%;
-  background-color: yellow;
+  background-color: #FFD029;
   transform: translateX(-70%);
 }
 
@@ -124,38 +127,38 @@ p {
 } 
 
 .planet-1 {
-  height: clamp(9px, 2px + 10vw, 17px);
-  min-width: clamp(9px, 2px + 10vw, 17px);
+  height: clamp(9px, 1px + 5vw, 17px);
+  min-width: clamp(9px, 1px + 5vw, 17px);
   border-radius: 50%;
-  background-color: lightgrey;
+  background-color: #888888
 }
 
 .planet-2 {
   height: clamp(22px, 8px + 10vw, 45px);
   min-width: clamp(22px, 8px + 10vw, 45px);
   border-radius: 50%;
-  background-color: gold;
+  background-color: #E7CDCD
 }
 
 .planet-3 {
   height: clamp(25px, 9px + 10vw, 50px);
   min-width: clamp(25px, 9px + 10vw, 50px);
   border-radius: 50%;
-  background-color: blue;
+  background-color: #428ED4
 }
 
 .planet-4 {
-  height: clamp(12px, 6px + 10vw, 25px);
-  min-width: clamp(12px, 6px + 10vw, 25px);
+  height: clamp(12px, 6px + 5vw, 25px);
+  min-width: clamp(12px, 6px + 5vw, 25px);
   border-radius: 50%;
-  background-color: red;
+  background-color: #EF5F5F
 }
 
 .planet-5 {
   height: clamp(120px, 100px + 10vw, 240px);
   min-width: clamp(120px, 100px + 10vw, 240px);
   border-radius: 50%;
-  background-color: brown;
+  background-color: #E29468
 }
 
 .planet-6 {
@@ -164,21 +167,33 @@ p {
   height: clamp(105px, 80px + 10vw, 210px);
   min-width: clamp(105px, 80px + 10vw, 210px);
   border-radius: 50%;
-  background-color: brown;
+  background-color: #C7AA72;
+  position: relative;
+}
+
+.saturnRing {
+  position: absolute;
+  width: 320px;
+  height: 5px;
+  background-color: white;
+  transform: rotateZ(-32deg) translateY(60px) translateX(-95px);
+  border-radius: 80%;
+  opacity: 0.7;
+  z-index: 2;
 }
 
 .planet-7 {
   height: clamp(70px, 55px + 10vw, 140px);
   min-width: clamp(70px, 55px + 10vw, 140px);
   border-radius: 50%;
-  background-color: lightblue;
+  background-color: #C9D4F1
 }
 
 .planet-8 {
   height: clamp(65px, 55px + 10vw, 135px);
   min-width: clamp(65px, 55px + 10vw, 135px);
   border-radius: 50%;
-  background-color: darkblue;
+  background-color: #7A91A7
 }
 
 /* Planet info page styles */
@@ -227,21 +242,18 @@ p {
   border-bottom: 1px solid black;
 }
 
-
-
 /* Footer element styles */
 .footer {
   display: flex;
   justify-content: center;
   height: 10%;
   font-size: 1.4rem;
+  margin: auto;
 }
 
 .footer p {
   margin-bottom: auto;
 }
-
-
 
 .hidden {
   display: none;

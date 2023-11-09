@@ -1,3 +1,4 @@
+const wrapper = document.querySelector('.wrapper');
 
 const header = document.querySelector('.header');
 const headerTitle = document.querySelector('.header_title');
@@ -44,6 +45,7 @@ async function getPlanetData(){
   }
 } 
 
+//hide frontpage elements and show information page
 function hideFrontPage(){
   headerTitle.classList.add('hidden');
   headerSubtitle.classList.add('hidden');
@@ -52,6 +54,7 @@ function hideFrontPage(){
   returnBtn.classList.remove('hidden');
 }
 
+//show frontpage elements and hide information page
 function showFrontPage(){
   headerTitle.classList.remove('hidden');
   headerSubtitle.classList.remove('hidden');
@@ -61,23 +64,44 @@ function showFrontPage(){
 }
 
 
-//Generate planets and add event listeners
+//Generate planets HTML and add a eventlistener to every planet
 async function generatePlanetsAndEventListeners(){
   const planetData = await getPlanetData();
   const planetArr =  await planetData.bodies;
 
   for(let i = 0; i < planetArr.length; i++){
-    const planetContainer = document.createElement('div');
-    planetContainer.classList.add(`planet-${i}`, 'planet');
-    mainPlanets.append(planetContainer);
+    if(i === 6){
+      const planetContainer = document.createElement('div');
+      const ringContainer = document.createElement('div');
+      planetContainer.classList.add(`planet-${i}`, 'planet');
+      ringContainer.classList.add('saturnRing');
+      mainPlanets.append(planetContainer);
+      planetContainer.append(ringContainer);
 
-    planetContainer.addEventListener('click', () => {
-      mainPlanetInfo.innerHTML = '';
-      hideFrontPage();
-      return new PlanetUI(planetArr[i]);
-    });
+      planetContainer.addEventListener('click', () => {
+        mainPlanetInfo.innerHTML = '';
+        wrapper.style.background = 'rgb(23,23,87)';
+        wrapper.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
+        hideFrontPage();
+        return new PlanetUI(planetArr[i]);
+      });
+    } else {
+      const planetContainer = document.createElement('div');
+      planetContainer.classList.add(`planet-${i}`, 'planet');
+      mainPlanets.append(planetContainer);
+    
+      planetContainer.addEventListener('click', () => {
+        mainPlanetInfo.innerHTML = '';
+        wrapper.style.background = 'rgb(23,23,87)';
+        wrapper.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
+        hideFrontPage();
+        return new PlanetUI(planetArr[i]);
+      });
+    }
   }
   returnBtn.addEventListener('click', () => {
+    wrapper.style.background = 'rgb(23,24,51)';
+    wrapper.style.background = 'linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%)'; 
     showFrontPage();
   });
 }
