@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-width: 350px;
+  height: 100vh;
+  font-family: sans-serif;
+  /* background: rgb(23,24,51);
+  background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%); */
+}
+
+h1 {
+  text-shadow: 1px 1px 5px black;
+  color: white;
+}
+
+h3 {
+  text-shadow: 1px 1px 5px black;
+  color: white;
+}
+
+h4 {
+  text-shadow: 1px 1px 5px black;
+  color: white;
+}
+
+p {
+  line-height: 1.4;
+  text-shadow: 1px 1px 5px black;
+  color: white;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgb(23,24,51);
+  background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%);
+}
+/* Header element styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 150px;
+  margin: 4% 3% 0% 0%;
+}
+
+.header_subtitle {
+  text-indent: 5%;
+}
+
+.subtitle {
+  font-family: 'Times New Roman', Times, serif;
+  color: goldenrod;
+  letter-spacing: 10px;
+}
+
+.returnBtn {
+  width: 110px;
+  height: 80%;
+  border-radius: 50%;
+  background-color: brown;
+  align-self: center;
+  transform: translateX(25%);
+  border: none;
+  box-shadow: 0px 5px 5px rgba(54, 5, 5, 0.438);
+  color: white;
+  font-weight: 600;
+}
+
+.returnBtn:hover {
+  height: 81%;
+  background-color: brown;
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  box-shadow: 0px 3px 5px rgb(54, 5, 5, 0.438);
+}
+
+.returnBtn:active {
+  height: 82%;
+  background-color: brown;
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  box-shadow: 0px 1px 5px rgb(54, 5, 5, 0.438);
+}
+
+/* Main element styles */
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  height: 80%;
+  width: 100%;
+}
+
+.main_planets {
+  display: flex;
+  /* justify-content: space-between; */
+  transform: translateX(-0%);
+  height: 80%;
+  width: 100%;
+}
+
+.planet {
+  background-color: bisque;
+  cursor: pointer;
+  overflow: visible;
+  box-shadow: 1px 1px 5px black;
+  align-self: center;
+}
+
+.planet-0 {
+  height: clamp(375px, 355px + 27vw, 750px);
+  min-width: clamp(125px, 100px + 10vw, 250px);
+  border-radius: 50%;
+  background-color: yellow;
+  transform: translateX(-70%);
+}
+
+.planet-1, .planet-2, .planet-3, .planet-4, .planet-5, .planet-6, .planet-7, .planet-8 {
+  margin: 0 3.5% 0 1.5%;
+} 
+
+.planet-1 {
+  height: clamp(9px, 2px + 10vw, 17px);
+  min-width: clamp(9px, 2px + 10vw, 17px);
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+
+.planet-2 {
+  height: clamp(22px, 8px + 10vw, 45px);
+  min-width: clamp(22px, 8px + 10vw, 45px);
+  border-radius: 50%;
+  background-color: gold;
+}
+
+.planet-3 {
+  height: clamp(25px, 9px + 10vw, 50px);
+  min-width: clamp(25px, 9px + 10vw, 50px);
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.planet-4 {
+  height: clamp(12px, 6px + 10vw, 25px);
+  min-width: clamp(12px, 6px + 10vw, 25px);
+  border-radius: 50%;
+  background-color: red;
+}
+
+.planet-5 {
+  height: clamp(120px, 100px + 10vw, 240px);
+  min-width: clamp(120px, 100px + 10vw, 240px);
+  border-radius: 50%;
+  background-color: brown;
+}
+
+.planet-6 {
+  height: 210px;
+  min-width: 210px;
+  height: clamp(105px, 80px + 10vw, 210px);
+  min-width: clamp(105px, 80px + 10vw, 210px);
+  border-radius: 50%;
+  background-color: brown;
+}
+
+.planet-7 {
+  height: clamp(70px, 55px + 10vw, 140px);
+  min-width: clamp(70px, 55px + 10vw, 140px);
+  border-radius: 50%;
+  background-color: lightblue;
+}
+
+.planet-8 {
+  height: clamp(65px, 55px + 10vw, 135px);
+  min-width: clamp(65px, 55px + 10vw, 135px);
+  border-radius: 50%;
+  background-color: darkblue;
+}
+
+/* Planet info page styles */
+.main_planetInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+
+.planetInfo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.planetInfo h1 {
+  font-size: 4rem;
+  margin-bottom: 1%;
+  
+}
+
+.planetInfo h3{
+  font-size: 2.4rem;
+}
+
+.planetInfo h4{
+  font-size: 1.3rem;
+  margin-top: 2%;
+}
+
+.planetInfo p{
+  height: fit-content;
+  width: 100%;
+  font-size: 1.2rem;
+  margin: 1% 0% 2% 0%;
+}
+
+.article_infoSegment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+
+
+/* Footer element styles */
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  font-size: 1.4rem;
+}
+
+.footer p {
+  margin-bottom: auto;
+}
+
+
+
+.hidden {
+  display: none;
+}
