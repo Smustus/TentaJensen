@@ -1,10 +1,8 @@
 const wrapper = document.querySelector('.wrapper');
-
 const header = document.querySelector('.header');
 const headerTitle = document.querySelector('.header_title');
 const headerSubtitle = document.querySelector('.header_subtitle');
 const returnBtn = document.querySelector('.returnBtn');
-
 const main = document.querySelector('.main');
 const mainPlanets = document.querySelector('.main_planets');
 const mainPlanetInfo = document.querySelector('.main_planetInfo');
@@ -18,13 +16,12 @@ async function getAPIKey(){
     const data = await response.json();
     console.log(data);
     return data.key;
-
   } catch (error) {
-    return 'Error fetching data' + ' ' + error;
+    return 'Error fetching data: ' + error;
   }
 }
 
-//Fetch data
+//Fetch planet data
 async function getPlanetData(){
   const key = await getAPIKey();
   try {
@@ -35,9 +32,8 @@ async function getPlanetData(){
     const data = await response.json();
     console.log(data);
     return data;
-
   } catch (error) {
-    return 'Data could not be retrieved' + ' ' + error;
+    return 'Data could not be retrieved: ' + error;
   }
 } 
 
@@ -46,7 +42,6 @@ function hideFrontPage(){
   headerTitle.classList.add('hidden');
   headerSubtitle.classList.add('hidden');
   mainPlanets.classList.add('hidden');
-
   mainPlanetInfo.classList.remove('hidden');
   returnBtn.classList.remove('hidden');
 }
@@ -56,12 +51,11 @@ function showFrontPage(){
   headerTitle.classList.remove('hidden');
   headerSubtitle.classList.remove('hidden');
   mainPlanets.classList.remove('hidden');
-
   mainPlanetInfo.classList.add('hidden');
   returnBtn.classList.add('hidden');
 }
 
-//Generate planets HTML and respective eventlistener
+//Generate planets HTML and their respective eventlistener
 async function generatePlanetsAndEventListeners(){
   const planetData = await getPlanetData();
   const planetArr =  await planetData.bodies;
@@ -116,7 +110,7 @@ class PlanetUI {
     this.subtitle = document.createElement('h3');
     this.subtitle.classList.add('subtitle');
     this.infoText = document.createElement('p');
-    
+
     this.title.textContent = planet.name;
     this.subtitle.textContent = planet.latinName;
     this.infoText.textContent = planet.desc;
