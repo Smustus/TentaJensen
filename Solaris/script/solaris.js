@@ -9,7 +9,6 @@ const main = document.querySelector('.main');
 const mainPlanets = document.querySelector('.main_planets');
 const mainPlanetInfo = document.querySelector('.main_planetInfo');
 
-
 //Fetch API key
 async function getAPIKey(){
   try {
@@ -24,8 +23,6 @@ async function getAPIKey(){
     return 'Error fetching data' + ' ' + error;
   }
 }
-/* console.log(getAPIKey()); */
-
 
 //Fetch data
 async function getPlanetData(){
@@ -36,7 +33,6 @@ async function getPlanetData(){
       headers: { "x-zocom": `${key}` }
     });
     const data = await response.json();
-    console.log(response);
     console.log(data);
     return data;
 
@@ -45,26 +41,27 @@ async function getPlanetData(){
   }
 } 
 
-//hide frontpage elements and show information page
+//Hide frontpage elements and show information page
 function hideFrontPage(){
   headerTitle.classList.add('hidden');
   headerSubtitle.classList.add('hidden');
   mainPlanets.classList.add('hidden');
+
   mainPlanetInfo.classList.remove('hidden');
   returnBtn.classList.remove('hidden');
 }
 
-//show frontpage elements and hide information page
+//Show frontpage elements and hide information page
 function showFrontPage(){
   headerTitle.classList.remove('hidden');
   headerSubtitle.classList.remove('hidden');
   mainPlanets.classList.remove('hidden');
+
   mainPlanetInfo.classList.add('hidden');
   returnBtn.classList.add('hidden');
 }
 
-
-//Generate planets HTML and add a eventlistener to every planet
+//Generate planets HTML and respective eventlistener
 async function generatePlanetsAndEventListeners(){
   const planetData = await getPlanetData();
   const planetArr =  await planetData.bodies;
@@ -79,11 +76,11 @@ async function generatePlanetsAndEventListeners(){
       planetContainer.append(ringContainer);
 
       planetContainer.addEventListener('click', () => {
-        mainPlanetInfo.innerHTML = '';
-        wrapper.style.background = 'rgb(23,23,87)';
-        wrapper.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
-        hideFrontPage();
-        return new PlanetUI(planetArr[i]);
+          mainPlanetInfo.innerHTML = '';
+          wrapper.style.background = 'rgb(23,23,87)';
+          wrapper.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
+          hideFrontPage();
+          return new PlanetUI(planetArr[i]);
       });
     } else {
       const planetContainer = document.createElement('div');
@@ -105,7 +102,7 @@ async function generatePlanetsAndEventListeners(){
     showFrontPage();
   });
 }
-console.log(generatePlanetsAndEventListeners());
+generatePlanetsAndEventListeners();
 
 //Template for planet information
 class PlanetUI {
@@ -119,14 +116,16 @@ class PlanetUI {
     this.subtitle = document.createElement('h3');
     this.subtitle.classList.add('subtitle');
     this.infoText = document.createElement('p');
+    
     this.title.textContent = planet.name;
     this.subtitle.textContent = planet.latinName;
     this.infoText.textContent = planet.desc;
+
     this.section.append(this.title);
     this.section.append(this.subtitle);
     this.section.append(this.infoText);
 
-    //other empiric data segment
+    //Other empiric data segment
     this.infoSegment = document.createElement('section');
     this.infoSegment.classList.add('article_infoSegment');
     this.section.append(this.infoSegment);

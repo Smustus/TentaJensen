@@ -9,6 +9,7 @@ body {
   min-width: 350px;
   height: 100vh;
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 h1 {
@@ -40,7 +41,7 @@ p {
   background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%);
 }
 
-/* Header element styles */
+/* HEADER element styles */
 .header {
   display: flex;
   flex-direction: column;
@@ -78,6 +79,7 @@ p {
 }
 
 .returnBtn:hover {
+  width: 112px;
   height: 81%;
   background-color: brown;
   border: 1px solid rgba(255, 255, 255, 0.219);
@@ -85,20 +87,21 @@ p {
 }
 
 .returnBtn:active {
-  height: 82%;
+  width: 110px;
+  height: 80%;
   background-color: brown;
   border: 1px solid rgba(255, 255, 255, 0.219);
   box-shadow: 0px 1px 5px rgb(54, 5, 5, 0.438);
 }
 
-/* Main element styles */
+/* MAIN element styles */
 .main {
   display: flex;
   justify-content: space-evenly;
   height: 70%;
   width: 100%;
 }
-
+/* Front page main styles*/
 .main_planets {
   display: flex;
   transform: translateX(-0%);
@@ -107,57 +110,59 @@ p {
 }
 
 .planet {
-  background-color: bisque;
   cursor: pointer;
-  overflow: visible;
-  box-shadow: 1px 1px 5px black;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
   align-self: center;
+  border-radius: 50%;
 }
 
 .planet-0 {
   height: clamp(375px, 355px + 27vw, 750px);
   min-width: clamp(125px, 100px + 10vw, 250px);
-  border-radius: 50%;
   background-color: #FFD029;
   transform: translateX(-70%);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.planet-0:hover {
+  transform: translateX(-60%);
 }
 
 .planet-1, .planet-2, .planet-3, .planet-4, .planet-5, .planet-6, .planet-7, .planet-8 {
   margin: 0 3.5% 0 1.5%;
 } 
 
+.planet-1:hover, .planet-2:hover, .planet-3:hover, .planet-4:hover, .planet-5:hover, .planet-6:hover, .planet-7:hover, .planet-8:hover {
+  transform: scale(1.2);
+} 
+
 .planet-1 {
   height: clamp(9px, 1px + 5vw, 17px);
   min-width: clamp(9px, 1px + 5vw, 17px);
-  border-radius: 50%;
   background-color: #888888
 }
 
 .planet-2 {
   height: clamp(22px, 8px + 10vw, 45px);
   min-width: clamp(22px, 8px + 10vw, 45px);
-  border-radius: 50%;
   background-color: #E7CDCD
 }
 
 .planet-3 {
   height: clamp(25px, 9px + 10vw, 50px);
   min-width: clamp(25px, 9px + 10vw, 50px);
-  border-radius: 50%;
   background-color: #428ED4
 }
 
 .planet-4 {
   height: clamp(12px, 6px + 5vw, 25px);
   min-width: clamp(12px, 6px + 5vw, 25px);
-  border-radius: 50%;
   background-color: #EF5F5F
 }
 
 .planet-5 {
   height: clamp(120px, 100px + 10vw, 240px);
   min-width: clamp(120px, 100px + 10vw, 240px);
-  border-radius: 50%;
   background-color: #E29468
 }
 
@@ -166,33 +171,31 @@ p {
   min-width: 210px;
   height: clamp(105px, 80px + 10vw, 210px);
   min-width: clamp(105px, 80px + 10vw, 210px);
-  border-radius: 50%;
   background-color: #C7AA72;
   position: relative;
 }
 
 .saturnRing {
   position: absolute;
-  width: 320px;
+  width: 330px;
   height: 5px;
   background-color: white;
-  transform: rotateZ(-32deg) translateY(60px) translateX(-95px);
+  transform: rotateZ(-31deg) translateY(58px) translateX(-100px);
   border-radius: 80%;
   opacity: 0.7;
   z-index: 2;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
 }
 
 .planet-7 {
   height: clamp(70px, 55px + 10vw, 140px);
   min-width: clamp(70px, 55px + 10vw, 140px);
-  border-radius: 50%;
   background-color: #C9D4F1
 }
 
 .planet-8 {
   height: clamp(65px, 55px + 10vw, 135px);
   min-width: clamp(65px, 55px + 10vw, 135px);
-  border-radius: 50%;
   background-color: #7A91A7
 }
 
@@ -201,25 +204,19 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 50%;
   height: 100%;
-}
-
-.planetInfo {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
+  transform: translateY(-4%);
 }
 
 .planetInfo h1 {
-  font-size: 4rem;
-  margin-bottom: 1%;
-  
+  font-size: 3.6rem;
+  margin-bottom: 0.5%;
 }
 
 .planetInfo h3{
   font-size: 2.4rem;
+  margin-bottom: 0.5%;
 }
 
 .planetInfo h4{
@@ -230,7 +227,7 @@ p {
 .planetInfo p{
   height: fit-content;
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 1% 0% 2% 0%;
 }
 
@@ -238,11 +235,11 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
-/* Footer element styles */
+/* FOOTER element styles */
 .footer {
   display: flex;
   justify-content: center;
