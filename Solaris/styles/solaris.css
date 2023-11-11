@@ -6,10 +6,12 @@
 
 body {
   width: 100vw;
-  min-width: 350px;
+  min-width: 360px;
   height: 100vh;
   font-family: sans-serif;
   overflow: hidden;
+  background: rgb(23,23,87);
+  background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%); 
 }
 
 h1 {
@@ -37,8 +39,56 @@ p {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: rgb(23,24,51);
-  background: linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%);
+}
+
+/* BUTTON element styles */
+.returnBtn {
+  height: clamp(90px, 20px + 15vw, 120px);
+  width: clamp(90px, 20px + 15vw, 120px);
+  border-radius: 50%;
+  background-color: brown;
+  align-self: center;
+  transform: translateX(25%) translateY(-5%);
+  border: none;
+  box-shadow: 0px 5px 5px rgba(54, 5, 5, 0.5);
+  color: white;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.returnBtn:hover {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 3px 5px rgb(54, 5, 5, 0.5);
+}
+
+.returnBtn:active {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 1px 5px rgb(54, 5, 5, 0.5);
+}
+
+.prevBtn, .nextBtn {
+  text-align: center;
+  height: clamp(45px, 20px + 5vw, 90px);
+  width: clamp(45px, 20px + 5vw, 90px);
+  border-radius: 50%;
+  background-color: #ebebeb;
+  border: none;
+  box-shadow: 0px 5px 5px rgba(32, 32, 32, 0.5);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+  align-self: center;
+}
+
+.prevBtn:hover, .nextBtn:hover {
+  background-color: hsla(0, 0%, 89%, 0.5);
+  color: #ebebeb;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.prevBtn:active, .nextBtn:active {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 1px 5px rgb(54, 5, 5, 0.5);
 }
 
 /* HEADER element styles */
@@ -63,35 +113,6 @@ p {
   font-family: 'Times New Roman', Times, serif;
   color: goldenrod;
   letter-spacing: 10px;
-}
-
-.returnBtn {
-  width: 110px;
-  height: 80%;
-  border-radius: 50%;
-  background-color: brown;
-  align-self: center;
-  transform: translateX(25%);
-  border: none;
-  box-shadow: 0px 5px 5px rgba(54, 5, 5, 0.438);
-  color: white;
-  font-weight: 600;
-}
-
-.returnBtn:hover {
-  width: 112px;
-  height: 81%;
-  background-color: brown;
-  border: 1px solid rgba(255, 255, 255, 0.219);
-  box-shadow: 0px 3px 5px rgb(54, 5, 5, 0.438);
-}
-
-.returnBtn:active {
-  width: 110px;
-  height: 80%;
-  background-color: brown;
-  border: 1px solid rgba(255, 255, 255, 0.219);
-  box-shadow: 0px 1px 5px rgb(54, 5, 5, 0.438);
 }
 
 /* MAIN element styles */
@@ -137,50 +158,48 @@ p {
 } 
 
 .planet-1 {
-  height: clamp(9px, 1px + 5vw, 17px);
-  min-width: clamp(9px, 1px + 5vw, 17px);
+  height: clamp(10px, 1px + 3vw, 17px);
+  min-width: clamp(10px, 1px + 3vw, 17px);
   background-color: #888888
 }
 
 .planet-2 {
-  height: clamp(22px, 8px + 10vw, 45px);
-  min-width: clamp(22px, 8px + 10vw, 45px);
+  height: clamp(22px, 2px + 8vw, 45px);
+  min-width: clamp(22px, 2px + 8vw, 45px);
   background-color: #E7CDCD
 }
 
 .planet-3 {
-  height: clamp(25px, 9px + 10vw, 50px);
-  min-width: clamp(25px, 9px + 10vw, 50px);
+  height: clamp(25px, 2px + 8vw, 50px);
+  min-width: clamp(25px, 2px + 8vw, 50px);
   background-color: #428ED4
 }
 
 .planet-4 {
-  height: clamp(12px, 6px + 5vw, 25px);
-  min-width: clamp(12px, 6px + 5vw, 25px);
+  height: clamp(12px, 1px + 3vw, 25px);
+  min-width: clamp(12px, 1px + 3vw, 25px);
   background-color: #EF5F5F
 }
 
 .planet-5 {
-  height: clamp(120px, 100px + 10vw, 240px);
-  min-width: clamp(120px, 100px + 10vw, 240px);
+  height: clamp(120px, 80px + 8vw, 280px);
+  min-width: clamp(120px, 80px + 8vw, 280px);
   background-color: #E29468
 }
 
 .planet-6 {
-  height: 210px;
-  min-width: 210px;
-  height: clamp(105px, 80px + 10vw, 210px);
-  min-width: clamp(105px, 80px + 10vw, 210px);
+  height: clamp(105px, 80px + 8vw, 250px);
+  min-width: clamp(105px, 80px + 8vw, 250px);
   background-color: #C7AA72;
   position: relative;
 }
 
 .saturnRing {
   position: absolute;
-  width: 330px;
-  height: 5px;
+  height: clamp(1px, 1px + 1vw, 5px);
+  min-width: clamp(205px, 180px + 8vw, 340px);
   background-color: white;
-  transform: rotateZ(-31deg) translateY(58px) translateX(-100px);
+  transform: rotateZ(-31deg) translateY(69px) translateX(-100px);
   border-radius: 80%;
   opacity: 0.7;
   z-index: 2;
@@ -254,4 +273,85 @@ p {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 1600px) {
+  * {
+    transform: scale(0.9);
+  };
+
+  .main_planetInfo {
+    transform: scale(1.2);
+    width: 100%;
+  }
+
+  .saturnRing {
+    transform: rotateZ(-31deg) translateY(50px) translateX(-100px);
+  }
+}
+
+@media screen and (max-width: 1380px) {
+  .saturnRing {
+    transform: rotateZ(-31deg) translateY(50px) translateX(-90px);
+  }
+
+  .main_planetInfo {
+    transform: scale(1.2);
+  }
+}
+
+@media screen and (max-width: 905px) {
+  * {
+    transform: scale(0.85);
+  }
+
+  .main_planets {
+    transform: translateX(-10%);
+  }
+
+  .main_planetInfo {
+    transform: scale(1.5);
+  }
+
+  button {
+    margin: 0 5% 0 5%;
+    z-index: 2;
+  }
+
+  .returnBtn {
+    transform: translateY(-150%);
+  }
+
+  .nextBtn {
+    transform: translateX(550%);
+  }
+
+  .prevBtn {
+    transform: translateX(-550%);
+  }
+
+  .saturnRing {
+    transform: rotateZ(-31deg) translateY(40px) translateX(-86px);
+  }
+}
+
+@media screen and (max-width: 660px) {
+  * {
+    transform: scale(0.8);
+  }
+  .main_planets {
+    transform: translateX(-30%);
+  }
+
+  .main_planetInfo {
+    transform: scale(2);
+  }
+
+  .planetInfo {
+    width: 150%;
+  }
+
+  .saturnRing {
+    transform: rotateZ(-31deg) translateY(30px) translateX(-76px);
+  }
 }
