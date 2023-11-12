@@ -69,13 +69,27 @@ async function generatePlanetsAndEventListeners(){
   for(let i = 0; i < planetArr.length; i++){
     if(i === 6){
       const planetContainer = document.createElement('div');
-      const ringContainer = document.createElement('div');
       planetContainer.classList.add(`planet-${i}`, 'planet');
+      mainPlanets.append(planetContainer);
+
+      const ringContainer = document.createElement('div');
       ringContainer.classList.add('saturnRing');
       planetContainer.append(ringContainer);
-      mainPlanets.append(planetContainer);
-      
 
+      planetContainer.addEventListener('mouseover', () => {
+        const dropDownInfo = document.createElement('article');
+        dropDownInfo.classList.add(`dropDownPlanet-${i}`, 'dropDown');
+        planetContainer.append(dropDownInfo);
+        new PlanetUI(planetArr[i], dropDownInfo);
+      });
+
+      planetContainer.addEventListener('mouseout', () => {
+        const dropDownInfo = planetContainer.querySelector(`.dropDownPlanet-${i}`);
+        if (dropDownInfo) {
+          dropDownInfo.remove();
+        }
+      });
+      
       planetContainer.addEventListener('click', () => {
           mainPlanetInfo.innerHTML = '';
           document.body.style.background = 'rgb(23,23,87)';
@@ -83,12 +97,26 @@ async function generatePlanetsAndEventListeners(){
           hideFrontPage();
           currentPlanet = i;
           console.log(currentPlanet);
-          return new PlanetUI(planetArr[i]);
+          return new PlanetUI(planetArr[i], mainPlanetInfo);
       });
     } else {
       const planetContainer = document.createElement('div');
       planetContainer.classList.add(`planet-${i}`, 'planet');
       mainPlanets.append(planetContainer);
+
+      planetContainer.addEventListener('mouseover', () => {
+        const dropDownInfo = document.createElement('article');
+        dropDownInfo.classList.add(`dropDownPlanet-${i}`, 'dropDown');
+        planetContainer.append(dropDownInfo);
+        new PlanetUI(planetArr[i], dropDownInfo);
+      });
+
+      planetContainer.addEventListener('mouseout', () => {
+        const dropDownInfo = planetContainer.querySelector(`.dropDownPlanet-${i}`);
+        if (dropDownInfo) {
+          dropDownInfo.remove();
+        }
+      });
     
       planetContainer.addEventListener('click', () => {
         mainPlanetInfo.innerHTML = '';
@@ -97,10 +125,11 @@ async function generatePlanetsAndEventListeners(){
         hideFrontPage();
         currentPlanet = i;
         console.log(currentPlanet);
-        return new PlanetUI(planetArr[currentPlanet]);
+        return new PlanetUI(planetArr[i], mainPlanetInfo);
       });
     }
   }
+
   //return to start page
   returnBtn.addEventListener('click', () => {
     document.body.style.background = 'rgb(23,23,87)';
@@ -114,7 +143,7 @@ async function generatePlanetsAndEventListeners(){
     currentPlanet--;
     mainPlanetInfo.innerHTML = '';
     console.log(currentPlanet);
-    return new PlanetUI(planetArr[currentPlanet]);
+    return new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
   }
   });
   
@@ -124,7 +153,7 @@ async function generatePlanetsAndEventListeners(){
       currentPlanet++;
       mainPlanetInfo.innerHTML = '';
     console.log(currentPlanet);
-    return new PlanetUI(planetArr[currentPlanet]);
+    return new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
     }
   });
 }
@@ -132,10 +161,10 @@ generatePlanetsAndEventListeners();
 
 //Template for planet information
 class PlanetUI {
-  constructor(planet){
+  constructor(planet, parent){
     this.section = document.createElement('article');
     this.section.classList.add('planetInfo');
-    mainPlanetInfo.append(this.section);
+    parent.append(this.section);
 
     //Info segment
     this.title = document.createElement('h1');

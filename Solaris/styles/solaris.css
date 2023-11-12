@@ -42,6 +42,10 @@ p {
 }
 
 /* BUTTON element styles */
+button {
+  z-index: 2;
+}
+
 .returnBtn {
   height: clamp(90px, 20px + 15vw, 120px);
   width: clamp(90px, 20px + 15vw, 120px);
@@ -135,6 +139,7 @@ p {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
   align-self: center;
   border-radius: 50%;
+  position: relative;
 }
 
 .planet-0 {
@@ -218,6 +223,63 @@ p {
   background-color: #7A91A7
 }
 
+.dropDown {
+  transform: scale(0.4);
+  width: 500px;
+  height: min-content;
+  background-color: hsl(0, 0%, 0%, 0.8);
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 10;
+}
+
+.dropDownPlanet-0 {
+  top: 40%;
+  right: -115%;
+}
+
+.dropDownPlanet-1 {
+  top: -800%;
+  right: -1410%;
+}
+
+.dropDownPlanet-2 {
+  top: -390%;
+  right: -510%;
+}
+
+.dropDownPlanet-3 {
+  top: -220%;
+  right: -450%;
+}
+
+.dropDownPlanet-4 {
+  width: 380px;
+  top: -540%;
+  right: -720%;
+}
+
+.dropDownPlanet-5 {
+  top: 30%;
+  right: -60%;
+}
+
+.dropDownPlanet-6 {
+  top: 20%;
+  right: -60%;
+}
+
+.dropDownPlanet-7 {
+  top: 10%;
+  right: -130%;
+}
+
+.dropDownPlanet-8 {
+  top: -10%;
+  right: -130%;
+}
+
 /* Planet info page styles */
 .main_planetInfo {
   display: flex;
@@ -258,6 +320,8 @@ p {
   border-bottom: 1px solid white;
 }
 
+
+
 /* FOOTER element styles */
 .footer {
   display: flex;
@@ -277,7 +341,7 @@ p {
 
 @media screen and (max-width: 1600px) {
   * {
-    transform: scale(0.9);
+    transform: scale(0.91);
   };
 
   .main_planetInfo {
@@ -287,6 +351,15 @@ p {
 
   .saturnRing {
     transform: rotateZ(-31deg) translateY(50px) translateX(-100px);
+  }
+
+  .dropDown {
+    padding: 1px;
+  }
+
+  .footer {
+    transform: translateY(150%);
+    z-index: -1;
   }
 }
 
@@ -315,7 +388,6 @@ p {
 
   button {
     margin: 0 5% 0 5%;
-    z-index: 2;
   }
 
   .returnBtn {
