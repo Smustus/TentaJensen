@@ -341,8 +341,12 @@ button {
 
 @media screen and (max-width: 1600px) {
   * {
-    transform: scale(0.91);
-  };
+    transform: scale(0.93);
+  }
+
+  .main_planets {
+    transform: translateX(-15%);
+  }
 
   .main_planetInfo {
     transform: scale(1.2);
@@ -355,6 +359,16 @@ button {
 
   .dropDown {
     padding: 1px;
+    transform: scale(0.7) translateX(0%) translateY(25%);
+  }
+
+  .dropDownPlanet-0 {
+    transform: scale(0.75) translateX(7%) translateY(60%);
+  }
+
+  .dropDownPlanet-2 {
+    transform: scale(0.65) translateX(10%) translateY(25%);
+    width: 600px;
   }
 
   .footer {
@@ -371,15 +385,43 @@ button {
   .main_planetInfo {
     transform: scale(1.2);
   }
+
+  .dropDown {
+    transform: scale(0.65) translateX(-10%) translateY(20%);
+  }
+
+  .dropDownPlanet-0 {
+    transform: scale(0.8) translateX(24%) translateY(50%);
+  }
+
+  .dropDownPlanet-2 {
+    width: 550px;
+  }
 }
 
 @media screen and (max-width: 905px) {
   * {
-    transform: scale(0.85);
+    transform: scale(0.88);
   }
 
   .main_planets {
-    transform: translateX(-10%);
+    transform: translateX(-30%);
+  }
+
+  .dropDown {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 400px;
+  }
+
+  .dropDownPlanet-0 {
+    transform: translateX(30%) translateY(40%);
+  }
+
+  .dropDownPlanet-2 {
+    transform: scale(0.75) translateX(0%) translateY(26%);
+    width: 500px;
   }
 
   .main_planetInfo {
@@ -409,10 +451,35 @@ button {
 
 @media screen and (max-width: 660px) {
   * {
-    transform: scale(0.8);
+    transform: scale(0.82);
   }
   .main_planets {
-    transform: translateX(-30%);
+    transform: translateX(-55%);
+  }
+
+  .dropDown {
+    transform: scale(0.8) translateX(-10%) translateY(15%);
+    width: 400px;
+  }
+
+  .dropDownPlanet-0 {
+    transform: scale(0.75) translateX(45%) translateY(36%);
+    width: 500px;
+  }
+
+  .dropDownPlanet-1 {
+    transform: scale(0.75) translateX(30%) translateY(16%);
+    width: 400px;
+  }
+
+  .dropDownPlanet-2 {
+    transform: scale(0.75) translateX(30%) translateY(16%);
+    width: 500px;
+  }
+
+  .dropDownPlanet-4 {
+    transform: scale(0.75) translateX(30%) translateY(16%);
+    width: 400px;
   }
 
   .main_planetInfo {
