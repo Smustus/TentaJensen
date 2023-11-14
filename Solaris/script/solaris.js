@@ -1,8 +1,6 @@
-const header = document.querySelector('.header');
 const headerTitle = document.querySelector('.header_title');
 const headerSubtitle = document.querySelector('.header_subtitle');
 const returnBtn = document.querySelector('.returnBtn');
-const main = document.querySelector('.main');
 const mainPlanets = document.querySelector('.main_planets');
 const mainPlanetInfo = document.querySelector('.main_planetInfo');
 const prevBtn = document.querySelector('.prevBtn');
@@ -15,10 +13,9 @@ async function getAPIKey(){
     method: "POST"
   });
     const data = await response.json();
-    console.log(data);
     return data.key;
   } catch (error) {
-    return 'Error fetching data: ' + error;
+    return `Key could not be retrieved: ${error}`;
   }
 }
 
@@ -31,15 +28,14 @@ async function getPlanetData(){
       headers: { "x-zocom": `${key}` }
     });
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
-    return 'Data could not be retrieved: ' + error;
+    return `Data could not be retrieved: ${error}`;
   }
 } 
 
 //Hide frontpage elements and show information page
-function hideFrontPage(){
+function hideStartPage(){
   headerTitle.classList.add('hidden');
   headerSubtitle.classList.add('hidden');
   mainPlanets.classList.add('hidden');
@@ -60,100 +56,73 @@ function showStartPage(){
   nextBtn.classList.add('hidden');
 }
 
-//Generate planets HTML and their respective eventlistener
+//Generate planet HTMLs and their respective event listeners
 async function generatePlanetsAndEventListeners(){
   const planetData = await getPlanetData();
   const planetArr =  await planetData.bodies;
   let currentPlanet = 0;
 
   for(let i = 0; i < planetArr.length; i++){
-    if(i === 6){
-      const planetContainer = document.createElement('div');
-      planetContainer.classList.add(`planet-${i}`, 'planet');
-      mainPlanets.append(planetContainer);
+    createPlanet(i);
+  }
+  
+  function createPlanet(i){
+    const planetContainer = document.createElement('div');
+    planetContainer.classList.add(`planet-${i}`, 'planet');
+    mainPlanets.append(planetContainer);
 
+    planetContainer.addEventListener('click', () => {
+      mainPlanetInfo.innerHTML = '';
+      document.body.style.background = 'rgb(23,23,87)';
+      document.body.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
+      hideStartPage();
+      currentPlanet = i;
+      new PlanetUI(planetArr[i], mainPlanetInfo);
+    });
+
+    planetContainer.addEventListener('mouseover', () => {
+      const dropDownInfo = document.createElement('article');
+      dropDownInfo.classList.add(`dropDownPlanet-${i}`, 'dropDown');
+      planetContainer.append(dropDownInfo);
+      new PlanetUI(planetArr[i], dropDownInfo);
+    });
+
+    planetContainer.addEventListener('mouseout', () => {
+      const dropDownInfo = planetContainer.querySelector(`.dropDownPlanet-${i}`);
+      if (dropDownInfo) {
+        dropDownInfo.remove();
+      }
+    });
+
+    if(i === 6){
       const ringContainer = document.createElement('div');
       ringContainer.classList.add('saturnRing');
       planetContainer.append(ringContainer);
-
-      planetContainer.addEventListener('mouseover', () => {
-        const dropDownInfo = document.createElement('article');
-        dropDownInfo.classList.add(`dropDownPlanet-${i}`, 'dropDown');
-        planetContainer.append(dropDownInfo);
-        new PlanetUI(planetArr[i], dropDownInfo);
-      });
-
-      planetContainer.addEventListener('mouseout', () => {
-        const dropDownInfo = planetContainer.querySelector(`.dropDownPlanet-${i}`);
-        if (dropDownInfo) {
-          dropDownInfo.remove();
-        }
-      });
-      
-      planetContainer.addEventListener('click', () => {
-          mainPlanetInfo.innerHTML = '';
-          document.body.style.background = 'rgb(23,23,87)';
-          document.body.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
-          hideFrontPage();
-          currentPlanet = i;
-          console.log(currentPlanet);
-          return new PlanetUI(planetArr[i], mainPlanetInfo);
-      });
-    } else {
-      const planetContainer = document.createElement('div');
-      planetContainer.classList.add(`planet-${i}`, 'planet');
-      mainPlanets.append(planetContainer);
-
-      planetContainer.addEventListener('mouseover', () => {
-        const dropDownInfo = document.createElement('article');
-        dropDownInfo.classList.add(`dropDownPlanet-${i}`, 'dropDown');
-        planetContainer.append(dropDownInfo);
-        new PlanetUI(planetArr[i], dropDownInfo);
-      });
-
-      planetContainer.addEventListener('mouseout', () => {
-        const dropDownInfo = planetContainer.querySelector(`.dropDownPlanet-${i}`);
-        if (dropDownInfo) {
-          dropDownInfo.remove();
-        }
-      });
-    
-      planetContainer.addEventListener('click', () => {
-        mainPlanetInfo.innerHTML = '';
-        document.body.style.background = 'rgb(23,23,87)';
-        document.body.style.background = 'linear-gradient(301deg, rgba(23,23,87,1) 0%, rgba(8,10,89,1) 14%, rgba(31,11,115,1) 32%, rgba(37,35,102,1) 53%, rgba(57,42,139,1) 83%, rgba(100,78,166,1) 100%)'; 
-        hideFrontPage();
-        currentPlanet = i;
-        console.log(currentPlanet);
-        return new PlanetUI(planetArr[i], mainPlanetInfo);
-      });
     }
   }
 
-  //return to start page
+  //Return to start page
   returnBtn.addEventListener('click', () => {
     document.body.style.background = 'rgb(23,23,87)';
     document.body.style.background = 'linear-gradient(266deg, rgba(23,24,51,1) 0%, rgba(73,45,34,1) 47%, rgba(131,101,28,1) 83%, rgba(255,203,0,1) 100%)'; 
     showStartPage();
   });
 
-  //generate previous planet
+  //Generate previous planet, unless we reached the start of the array
   prevBtn.addEventListener('click', () => {
   if(currentPlanet > 0){
     currentPlanet--;
     mainPlanetInfo.innerHTML = '';
-    console.log(currentPlanet);
-    return new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
+    new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
   }
   });
   
-  //generate next planet
+  //Generate next planet, unless we reached the end of the array
   nextBtn.addEventListener('click', () => {
     if(currentPlanet < planetArr.length -1){
       currentPlanet++;
       mainPlanetInfo.innerHTML = '';
-    console.log(currentPlanet);
-    return new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
+      new PlanetUI(planetArr[currentPlanet], mainPlanetInfo);
     }
   });
 }
@@ -176,10 +145,12 @@ class PlanetUI {
     this.subtitle.textContent = planet.latinName;
     this.infoText.textContent = planet.desc;
 
-    this.section.append(this.title);
-    this.section.append(this.subtitle);
-    this.section.append(this.infoText);
-
+    this.section.append(
+      this.title,
+      this.subtitle, 
+      this.infoText
+    );
+  
     //Other empiric data segment
     this.infoSegment = document.createElement('section');
     this.infoSegment.classList.add('article_infoSegment');
@@ -188,39 +159,43 @@ class PlanetUI {
     this.circum = document.createElement('h4');
     this.circumText = document.createElement('p');
     this.circum.textContent = 'OMKRETS';
-    this.circumText.textContent = planet.circumference + ' km';
+    this.circumText.textContent = `${planet.circumference} km`;
 
     this.distance = document.createElement('h4');
     this.distanceText = document.createElement('p');
     this.distance.textContent = 'AVSTÅND TILL SOLEN';
-    this.distanceText.textContent = planet.distance + ' km';
+    this.distanceText.textContent = `${planet.distance} km`;
 
     this.maxTemp = document.createElement('h4');
     this.maxTempText = document.createElement('p');
     this.maxTemp.textContent = 'MAX TEMPERATUR';    
-    this.maxTempText.textContent = planet.temp.day + '°C';
+    this.maxTempText.textContent = `${planet.temp.day} °C`;
 
     this.minTemp = document.createElement('h4');
     this.minTempText = document.createElement('p');
     this.minTemp.textContent = 'MIN TEMPERATUR';
-    this.minTempText.textContent = planet.temp.night +'°C';   
+    this.minTempText.textContent = `${planet.temp.night} °C`;   
 
-    this.infoSegment.append(this.circum);
-    this.infoSegment.append(this.distance);
-    this.infoSegment.append(this.circumText);
-    this.infoSegment.append(this.distanceText);
-    this.infoSegment.append(this.maxTemp);
-    this.infoSegment.append(this.minTemp);
-    this.infoSegment.append(this.maxTempText);
-    this.infoSegment.append(this.minTempText);
-
+    this.infoSegment.append(
+      this.circum,
+      this.distance,
+      this.circumText,
+      this.distanceText,
+      this.maxTemp,
+      this.minTemp,
+      this.maxTempText,
+      this.minTempText
+    );
+    
     //Moon segment
     this.moons = document.createElement('h4');
     this.moonText = document.createElement('p');
     this.moons.textContent = 'MÅNAR';
     this.moonText.textContent = planet.moons.toString().split(',').join(', ');
     
-    this.section.append(this.moons);
-    this.section.append(this.moonText);    
+    this.section.append(
+      this.moons, 
+      this.moonText
+    );
   }
 }

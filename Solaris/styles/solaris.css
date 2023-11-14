@@ -139,7 +139,6 @@ button {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
   align-self: center;
   border-radius: 50%;
-  position: relative;
 }
 
 .planet-0 {
@@ -187,14 +186,14 @@ button {
 }
 
 .planet-5 {
-  height: clamp(120px, 80px + 8vw, 280px);
-  min-width: clamp(120px, 80px + 8vw, 280px);
+  height: clamp(120px, 100px + 8vw, 280px);
+  min-width: clamp(120px, 100px + 8vw, 280px);
   background-color: #E29468
 }
 
 .planet-6 {
-  height: clamp(105px, 80px + 8vw, 250px);
-  min-width: clamp(105px, 80px + 8vw, 250px);
+  height: clamp(105px, 75px + 8vw, 250px);
+  min-width: clamp(105px, 75px + 8vw, 250px);
   background-color: #C7AA72;
   position: relative;
 }
@@ -202,9 +201,9 @@ button {
 .saturnRing {
   position: absolute;
   height: clamp(1px, 1px + 1vw, 5px);
-  min-width: clamp(205px, 180px + 8vw, 340px);
+  min-width: clamp(90px, 150px + 11vw, 380px);
   background-color: white;
-  transform: rotateZ(-31deg) translateY(69px) translateX(-100px);
+  transform: rotateZ(-31deg) translateY(70px) translateX(-115px);
   border-radius: 80%;
   opacity: 0.7;
   z-index: 2;
@@ -212,14 +211,14 @@ button {
 }
 
 .planet-7 {
-  height: clamp(70px, 55px + 10vw, 140px);
-  min-width: clamp(70px, 55px + 10vw, 140px);
+  height: clamp(70px, 55px + 8vw, 150px);
+  min-width: clamp(70px, 55px + 8vw, 150px);
   background-color: #C9D4F1
 }
 
 .planet-8 {
-  height: clamp(65px, 55px + 10vw, 135px);
-  min-width: clamp(65px, 55px + 10vw, 135px);
+  height: clamp(65px, 55px + 8vw, 140px);
+  min-width: clamp(65px, 55px + 8vw, 140px);
   background-color: #7A91A7
 }
 
@@ -232,6 +231,7 @@ button {
   border-radius: 5px;
   padding: 10px;
   z-index: 10;
+  display: flex;
 }
 
 .dropDownPlanet-0 {
@@ -262,7 +262,7 @@ button {
 
 .dropDownPlanet-5 {
   top: 30%;
-  right: -60%;
+  right: -50%;
 }
 
 .dropDownPlanet-6 {
@@ -320,19 +320,12 @@ button {
   border-bottom: 1px solid white;
 }
 
-
-
 /* FOOTER element styles */
 .footer {
   display: flex;
   justify-content: center;
   height: 10%;
   font-size: 1.4rem;
-  margin: auto;
-}
-
-.footer p {
-  margin-bottom: auto;
 }
 
 .hidden {
@@ -342,6 +335,10 @@ button {
 @media screen and (max-width: 1600px) {
   * {
     transform: scale(0.93);
+  }
+
+  .prevBtn, .nextBtn {
+    margin: 0 4% 0 4%;
   }
 
   .main_planets {
@@ -410,8 +407,6 @@ button {
 
   .dropDown {
     display: flex;
-    padding: 0;
-    margin: 0;
     width: 400px;
   }
 
@@ -437,11 +432,11 @@ button {
   }
 
   .nextBtn {
-    transform: translateX(550%);
+    transform: translateX(350%);
   }
 
   .prevBtn {
-    transform: translateX(-550%);
+    transform: translateX(-350%);
   }
 
   .saturnRing {
@@ -492,5 +487,13 @@ button {
 
   .saturnRing {
     transform: rotateZ(-31deg) translateY(30px) translateX(-76px);
+  }
+
+  .nextBtn {
+    transform: translateX(650%);
+  }
+
+  .prevBtn {
+    transform: translateX(-650%);
   }
 }
