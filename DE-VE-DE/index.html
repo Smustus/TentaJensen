@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Shopping Cart FirebaseDB</title>
+</head>
+<body>
+
+  <header class="header">
+    <section class="header__inputSection">
+      <div>
+        <label for="title">Title: </label>
+        <input type="text" class="movieTitleInput" id="title" placeholder="Enter movie title" required>
+      </div>
+      <div>
+        <label for="genre">Genre: </label>
+        <input type="text" class="movieGenre" id="genre" placeholder="Enter movie genre" required>
+      </div>
+      <div>
+        <label for="releaseYear">Release year: </label>
+        <input type="number" class="movieReleaseYear" id="releaseYear" placeholder="Enter year of release" required>
+      </div>
+      <div>
+        <label for="description">Description: </label>
+        <input type="text" class="movieDescription" id="description" placeholder="Enter movie description" required>
+      </div>
+      <button class="addMovieBtn">Add movie</button>
+    </section>
+  </header>
+
+  <main class="main">
+    <h1 class="main__title">Movies</h1>
+    <section class="main__searchMovie">
+      <label for="searchMovie">Search: </label>
+      <input type="text" class="main__searchMovieInput" id="searchMovie" placeholder="Enter movie title">
+      <button class="main__searchMovieBtn">Search</button>
+    </section>
+    <section class="main__movieContainer"></section>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

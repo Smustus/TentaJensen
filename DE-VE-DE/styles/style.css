@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px dotted rgb(0, 0, 0);
+}
+
+body {
+  width: 100vw;
+  min-width: 360px;
+  height: 100vh;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+h4{
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button {
+  height: 30px;
+  padding: 5px;
+  margin: 1%;
+  font-weight: 600;
+  background-color: rgb(126, 26, 219);
+  color: white;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: rgb(127, 76, 175);
+}
+
+button:active {
+  background-color: brown;
+  padding: 6px;
+  transform: translateY(2%);
+}
+
+label {
+  font-size: 1rem;
+  margin: 0.1% 0% 0.1% 2%;
+  height: 20px;
+  align-self: center;
+}
+
+input {
+  font-size: 1rem;
+  margin: 0.1% 2% 0.1% 0%;
+  height: 30px;
+  width: 50%;
+}
+
+.addMovieBtn {
+  align-self: center;
+}
+
+header {
+  height: fit-content;
+  background-color: lightcyan;
+  display: flex;
+  justify-content: center;
+}
+
+.header__inputSection {
+  width: 90%;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+}
+
+.header__inputSection div {
+  width: 20%;
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+}
+
+main {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main__title {
+  margin: 1%;
+}
+
+.main__searchMovie {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main__movieContainer {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productBox {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer {
+  height: 100px;
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.watched {
+  opacity: 0.5;
+}
