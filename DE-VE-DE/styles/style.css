@@ -14,15 +14,15 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.0rem;
 }
 
 h3 {
-  font-size: 2.2rem;
+  font-size: 2.0rem;
 }
 
 h4{
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 p {
@@ -58,10 +58,17 @@ label {
 }
 
 input {
-  font-size: 1rem;
-  margin: 0.1% 2% 0.1% 0%;
   height: 30px;
   width: 50%;
+  min-width: 100px;
+  font-size: 1rem;
+  margin: 0.1% 2% 0.1% 0%;
+}
+
+#description {
+  height: 50px;
+  width: 60%;
+  resize:vertical;
 }
 
 .addMovieBtn {
@@ -124,10 +131,13 @@ main {
 
 .productBox {
   width: 300px;
+  margin: 1%;
+  padding: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
 }
 
 footer {

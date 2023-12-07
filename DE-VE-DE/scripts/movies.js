@@ -1,17 +1,8 @@
-//MODULE WITH MOVIE RELATED STUFF
+//MODULE WITH MOVIE FUNCTIONS
 //----------------------------------------------------------------------------
 import { getDocs, collection, addDoc, updateDoc, deleteDoc, doc, query, where, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { db } from "./main.js";
-
-const titleInput = document.querySelector('.movieTitleInput');
-const genreInput = document.querySelector('.movieGenre');
-const yearInput = document.querySelector('.movieReleaseYear');
-const descriptionInput = document.querySelector('.movieDescription');
-const addMovieBtn = document.querySelector('.addMovieBtn');
-
-const movieContainer = document.querySelector('.main__movieContainer');
-const movieSearch = document.querySelector('.main__searchMovieInput');
-const movieSearchBtn = document.querySelector('.main__searchMovieBtn');
+import { movieSearch, movieContainer } from './eventListenersAndDOM.js';
 //----------------------------------------------------------------------------
 //Fetch the movie data from the DB
 async function getMovieData(dataCollection){
@@ -29,19 +20,9 @@ async function getMovieData(dataCollection){
     generateMovieHTML(dataArr);
     
   } catch (error) {
-    console.error('Data could not be retrieved: ' + error);
+    console.error('Movie data could not be retrieved: ' + error);
   }
 }
-
-movieSearchBtn.addEventListener('click', () => {
-  searchMovie()
-});
-
-movieSearch.addEventListener('keyup', (e) => {
-  if(e.key === 'Enter'){
-  searchMovie()
-  }
-});
 //----------------------------------------------------------------------------
 //Generate movie HTML 
   function generateMovieHTML(dataArr) {
@@ -94,34 +75,6 @@ class MovieUI {
   }
 }
 //----------------------------------------------------------------------------
-//Function to add a movie to the database unless it already exist
-addMovieBtn.addEventListener('click', async () => {
-  try {
-    const title = titleInput.value.toLowerCase();
-    const genre = genreInput.value;
-    const releaseDate = yearInput.value;
-    const description = descriptionInput.value;
-    const checkTitle = await checkMovieExists(titleInput);
-    console.log(checkTitle);
-    if(titleInput.value && genreInput.value && yearInput.value && descriptionInput.value){
-      if(!checkTitle){
-        addMovieDB(title, genre, releaseDate, description, 'movies');
-        /* titleInput.value = '';
-        genreInput.value = '';
-        yearInput.value = '';
-        descriptionInput.value = ''; */
-        
-      } else {
-        alert('Movie already exist in DB');
-      }
-    } else {
-      alert('Please fill all fields');
-    }
-  } catch (error) {
-    console.error('Data could not be added: ' + error);
-  }
-});
-//----------------------------------------------------------------------------
 //Check the DB for movie title duplicates
 async function checkMovieExists(input) {
   const movieTitle = input.value.toLowerCase();
@@ -135,7 +88,7 @@ async function checkMovieExists(input) {
   return titleFound;
 }
 //----------------------------------------------------------------------------
-//Search the DB for a movie
+//Search the DB for a movie, if theres no match, generate all movies in the DB
 async function searchMovie() {
   try {
     const movie = await checkMovieExists(movieSearch);
@@ -147,7 +100,7 @@ async function searchMovie() {
       getMovieData('movies');
     }
   } catch (error) {
-    console.error('Data could not be retrieved: ' + error);
+    console.error('Movie could not be found: ' + error);
   }
 }
 //----------------------------------------------------------------------------
@@ -180,7 +133,7 @@ async function updateWatchedDB(dataCollection, id){
       });
     }
   } catch (error) {
-    console.error('Data could not be updated: ' + error);
+    console.error('Watched status could not be updated: ' + error);
   }
 }
 //----------------------------------------------------------------------------
@@ -189,10 +142,8 @@ async function removeMovieDB(dataCollection, id){
   try {
     await deleteDoc(doc(db, dataCollection, id));
   } catch (error) {
-    console.error('Data could not be removed: ' + error);
+    console.error('Movie could not be removed: ' + error);
   }
 }
 //----------------------------------------------------------------------------
-
-
-export { getMovieData };
+export { getMovieData, checkMovieExists, searchMovie, addMovieDB };
