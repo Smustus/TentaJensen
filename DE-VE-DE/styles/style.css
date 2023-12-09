@@ -2,17 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px dotted rgb(0, 0, 0);
+  /* border: 1px dotted rgb(0, 0, 0); */
 }
 
 body {
   width: 100vw;
   min-width: 360px;
   height: 100vh;
-  font-family: monospace;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 600;
+  background-color: #DDCAD9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* General stylings */
 h1 {
   font-size: 3.0rem;
 }
@@ -30,18 +35,27 @@ p {
   font-weight: 500;
 }
 
+h1, h2, h3, h4, p {
+  color: rgba(0, 0, 0, 0.842);
+  text-shadow: 1px 1px 1px rgb(163, 163, 163);
+}
+
 button {
   height: 30px;
+  width: 150px;
   padding: 5px;
   margin: 1%;
   font-weight: 600;
-  background-color: rgb(126, 26, 219);
+  font-family: monospace;
+  background-color: rgb(132, 75, 185);
   color: white;
   border-radius: 6px;
+  border: none;
+  box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.6);
 }
 
 button:hover {
-  background-color: rgb(127, 76, 175);
+  background-color: rgb(159, 116, 199);
 }
 
 button:active {
@@ -50,36 +64,57 @@ button:active {
   transform: translateY(2%);
 }
 
+nav button {
+  height: 40px;
+  padding: 5px;
+  margin: 1% 2%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #D1B1CB;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  box-shadow: none;
+}
+
+nav button:hover {
+  color: rgb(255, 255, 255);
+}
+
 label {
   font-size: 1rem;
-  margin: 0.1% 0% 0.1% 2%;
+  margin: 0.1% 2% 0.1% 2%;
   height: 20px;
   align-self: center;
+  
 }
 
-input {
+input, select{
   height: 30px;
   width: 50%;
-  min-width: 100px;
+  min-width: 110px;
   font-size: 1rem;
   margin: 0.1% 2% 0.1% 0%;
+  border-radius: 6px;
+  border: none;
 }
 
-#description {
-  height: 50px;
-  width: 60%;
-  resize:vertical;
-}
-
-.addMovieBtn {
-  align-self: center;
-}
-
+/* Header stylings */
 header {
+  width: 100%;
   height: fit-content;
-  background-color: lightcyan;
+  background-color: #b89bb2;
+  margin: 0.1%;
   display: flex;
   justify-content: center;
+  box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.6);
+}
+.movieDescription {
+  height: 50px;
+  width: 60%;
+  resize: vertical;
+}
+
+.header__addMovieBtn {
+  align-self: center;
 }
 
 .header__inputSection {
@@ -96,13 +131,25 @@ header {
   margin: 1%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   align-self: center;
   justify-content: center;
 }
 
+/* Nav stylings */
+nav {
+  width: 100%;
+  background-color: #D1B1CB;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.6);
+}
+
+/* Main stylings */
 main {
-  background-color: lightcoral;
+  background-color: #DDCAD9;
+  margin: 1.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,6 +169,14 @@ main {
   flex-wrap: wrap;
 }
 
+.main__searchMovieInput {
+  margin: 1% 1% 1% 0%;
+}
+
+.main__searchMovieBtn {
+  margin: 2%;
+}
+
 .main__movieContainer {
   width: 90%;
   display: flex;
@@ -130,29 +185,76 @@ main {
 }
 
 .productBox {
-  width: 300px;
+  width: 320px;
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  background-color: #D1B1CB;
+  border-radius: 15px;
+  box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.493);
 }
 
+.productBox h3{
+  margin: 0% 0% 2% 0%;
+}
+
+.productBox h4{
+  margin: 0% 0% 2% 0%;
+}
+
+.productBox p{
+  margin: 2% 0% 2% 0%;
+}
+
+/* Footer stylings */
 footer {
-  height: 100px;
-  background-color: lightskyblue;
+  background-color: #211A1D;
+  margin: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
+  box-shadow: 0px 2px 12px hsla(0, 0%, 0%, 0.6);
 }
 
+footer p{
+ color: white;
+ font-weight: 600;
+ text-shadow: none;
+ margin: 5%;
+ 
+}
+
+/* Toggle styles */
 .hidden {
   display: none;
 }
 
 .watched {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 620px) {
+  .header__inputSection {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    justify-content: center;  
+  }
+
+  .header__inputSection div, .header__inputSection button {
+    width: 100%;
+    margin: auto;
+    align-items: center;
+  }
+
+  .header__inputSection div label {
+    margin: 8% 2% 8% 0%;
+  }
 }

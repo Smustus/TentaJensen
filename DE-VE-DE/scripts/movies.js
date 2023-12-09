@@ -52,7 +52,7 @@ class MovieUI {
     this.watchedBtn.classList.add('watchedBtn');
     this.watchedBtn.textContent = 'Watched';
     this.watchedBtn.addEventListener('click', async () => {
-      await updateWatchedDB('movies', id);
+      await updateWatchedStatus('movies', id);
       this.productArticle.classList.add('watched');
       getMovieData('movies');
     });
@@ -103,6 +103,34 @@ async function searchMovie() {
     console.error('Movie could not be found: ' + error);
   }
 }
+
+//Search the DB for a movie, if theres no match, generate all movies in the DB
+async function searchMovieCategory(cat) {
+  try {
+    const category = cat.toLowerCase()
+    const genreQuery = await query(collection(db, 'movies'), where('genre', '==', category));
+    const genres = await getDocs(genreQuery);
+    console.log(genres);
+    const dataArr = [];
+    genres.forEach((movieObj) => {
+      dataArr.push({
+        id: movieObj.id,
+        movie: movieObj.data()
+      });
+    })
+    console.log(dataArr);
+
+    if(dataArr.length > 0){
+      movieContainer.textContent = '';
+      generateMovieHTML(dataArr) 
+    } else {
+      alert('No movies could be found with this category');
+      getMovieData('movies');
+    }
+  } catch (error) {
+    console.error('Movies could not be found: ' + error);
+  }
+}
 //----------------------------------------------------------------------------
 //Add a movie to the DB collection
 async function addMovieDB(title, genre, releaseDate, description, dataCollection){
@@ -118,7 +146,7 @@ async function addMovieDB(title, genre, releaseDate, description, dataCollection
 }
 //----------------------------------------------------------------------------
 //Update the watched status of a movie in the DB
-async function updateWatchedDB(dataCollection, id){
+async function updateWatchedStatus(dataCollection, id){
   try {
     const movie = await getDoc(doc(db, dataCollection, id));
     const watchedStatus = movie.data().watched;
@@ -126,12 +154,12 @@ async function updateWatchedDB(dataCollection, id){
     if (!watchedStatus) {
       await updateDoc(doc(db, dataCollection, id), {
         watched: true
-    });
-  } else {
-      await updateDoc(doc(db, dataCollection, id), {
-        watched: false
       });
-    }
+    } else {
+        await updateDoc(doc(db, dataCollection, id), {
+          watched: false
+        });
+      }
   } catch (error) {
     console.error('Watched status could not be updated: ' + error);
   }
@@ -146,4 +174,12 @@ async function removeMovieDB(dataCollection, id){
   }
 }
 //----------------------------------------------------------------------------
-export { getMovieData, checkMovieExists, searchMovie, addMovieDB };
+export { getMovieData, checkMovieExists, searchMovie, addMovieDB, searchMovieCategory };
+
+/* async function tryshit(db) {
+  const collect = collection(db, 'movies');
+  console.log(collect);
+  const titleQuery = await query(collect, where('genre', '>=', 'comedy'), where('genre', '<=', 'comedy'));
+  console.log(titleQuery);
+}
+console.log(tryshit(db)); */
