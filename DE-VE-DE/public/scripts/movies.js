@@ -1,4 +1,4 @@
-//MODULE WITH MOVIE FUNCTIONS
+//MODULE WITH MOVIE FUNCTIONS/CLASS
 //----------------------------------------------------------------------------
 import { getDocs, collection, addDoc, updateDoc, deleteDoc, doc, query, where, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { db } from "./main.js";
@@ -175,11 +175,3 @@ async function removeMovieDB(dataCollection, id){
 }
 //----------------------------------------------------------------------------
 export { getMovieData, checkMovieExists, searchMovie, addMovieDB, searchMovieCategory };
-
-/* async function tryshit(db) {
-  const collect = collection(db, 'movies');
-  console.log(collect);
-  const titleQuery = await query(collect, where('genre', '>=', 'comedy'), where('genre', '<=', 'comedy'));
-  console.log(titleQuery);
-}
-console.log(tryshit(db)); */
