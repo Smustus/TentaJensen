@@ -1,4 +1,5 @@
 //MODULE CONTAINING THE FIREBASE CONFIG
+//Intended to easily be hidden
 //----------------------------------------------------------------------------
 const firebaseConfig = {
   apiKey: "AIzaSyCcbP91KT_JHoiHW270jrhAfdGHRfM8l0s",

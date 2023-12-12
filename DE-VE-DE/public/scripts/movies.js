@@ -1,4 +1,5 @@
-//MODULE WITH MOVIE FUNCTIONS/CLASS
+//MODULE ORGANIZED WITH MOVIE FUNCTIONS/CLASS
+//Intended to easy locate all functions related to the movies on the page
 //----------------------------------------------------------------------------
 import { getDocs, collection, addDoc, updateDoc, deleteDoc, doc, query, where, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { db } from "./main.js";
@@ -32,7 +33,7 @@ async function getMovieData(dataCollection){
     }
   }
 //----------------------------------------------------------------------------
-//Movie template
+//Movie template class
 class MovieUI {
   constructor(id, title, genre, releaseDate, description, watched, parent) {
     this.productArticle = document.createElement('article');
@@ -103,15 +104,15 @@ async function searchMovie() {
     console.error('Movie could not be found: ' + error);
   }
 }
-
+//----------------------------------------------------------------------------
 //Search the DB for a movie, if theres no match, generate all movies in the DB
 async function searchMovieCategory(cat) {
   try {
     const category = cat.toLowerCase()
     const genreQuery = await query(collection(db, 'movies'), where('genre', '==', category));
     const genres = await getDocs(genreQuery);
-    console.log(genres);
     const dataArr = [];
+
     genres.forEach((movieObj) => {
       dataArr.push({
         id: movieObj.id,
@@ -150,8 +151,11 @@ async function updateWatchedStatus(dataCollection, id){
   try {
     const movie = await getDoc(doc(db, dataCollection, id));
     const watchedStatus = movie.data().watched;
-    console.log(watchedStatus);
-    if (!watchedStatus) {
+
+    await updateDoc(doc(db, dataCollection, id), {
+      watched: !watchedStatus
+    });
+    /* if (!watchedStatus) {
       await updateDoc(doc(db, dataCollection, id), {
         watched: true
       });
@@ -159,7 +163,7 @@ async function updateWatchedStatus(dataCollection, id){
         await updateDoc(doc(db, dataCollection, id), {
           watched: false
         });
-      }
+      } */
   } catch (error) {
     console.error('Watched status could not be updated: ' + error);
   }

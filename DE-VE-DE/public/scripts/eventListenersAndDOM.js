@@ -1,7 +1,9 @@
 //MODULE CONTAINING ALL DOM ELEMENTS AND EVENTLISTENERS
+//Organized to have easier access to respective button, would divide them into two separate modules if I had more code
 //----------------------------------------------------------------------------
 import { searchMovie, checkMovieExists, addMovieDB, searchMovieCategory } from './movies.js';
-
+//----------------------------------------------------------------------------
+//DOM elements, organized in group with regards to their page location
 const titleInput = document.querySelector('.movieTitleInput');
 const genreInput = document.querySelector('.movieGenre');
 const yearInput = document.querySelector('.movieReleaseYear');
@@ -14,17 +16,18 @@ const movieContainer = document.querySelector('.main__movieContainer');
 const movieSearch = document.querySelector('.main__searchMovieInput');
 const movieSearchBtn = document.querySelector('.main__searchMovieBtn');
 //----------------------------------------------------------------------------
-//Event Listeners
+//Event Listeners (EL)
+//EL to search for a movie title
 movieSearchBtn.addEventListener('click', () => {
   searchMovie();
 });
-//----------------------------------------------------------------------------
 movieSearch.addEventListener('keyup', (e) => {
   if(e.key === 'Enter'){
   searchMovie();
   }
 });
-
+//----------------------------------------------------------------------------
+//EL for the nav container to find movies with respective genres/categories
 navSection.addEventListener('click', (e) => {
   if (e.target.classList.contains('nav__categoryAction')) {
     searchMovieCategory('action');
@@ -40,7 +43,6 @@ navSection.addEventListener('click', (e) => {
     searchMovieCategory('other');
   } 
 });
-
 //----------------------------------------------------------------------------
 //EL to add a movie to the database unless it already exist
 addMovieBtn.addEventListener('click', async () => {
@@ -49,7 +51,6 @@ addMovieBtn.addEventListener('click', async () => {
     const genre = genreInput.value.toLowerCase();
     const getYear = new Date().getFullYear();
     let releaseDate;
-    console.log(yearInput.value);
 
     if(Number(yearInput.value) > 1800 && Number(yearInput.value) <= getYear){
       releaseDate = yearInput.value
@@ -60,8 +61,6 @@ addMovieBtn.addEventListener('click', async () => {
     }
     const description = descriptionInput.value;
     const checkTitle = await checkMovieExists(titleInput);
-    console.log(`releaseDate: ${releaseDate}`);
-    console.log(yearInput.value);
 
     if(title && genre && releaseDate && description){
       if(!checkTitle){
