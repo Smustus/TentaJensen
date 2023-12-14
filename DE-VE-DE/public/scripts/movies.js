@@ -5,26 +5,23 @@ import { getDocs, collection, addDoc, updateDoc, deleteDoc, doc, query, where, g
 import { db } from "./main.js";
 import { movieSearch, movieContainer } from './eventListenersAndDOM.js';
 //----------------------------------------------------------------------------
-//Fetch the movie data from the DB
+//Fetch the movie data from the DB and generate respective HTML
 async function getMovieData(dataCollection){
   try {
     const response = await getDocs(collection(db, dataCollection));
     const dataArr = [];
     response.forEach((movieObj) => {
-      console.log(movieObj.data());
       dataArr.push({
         id: movieObj.id,
         movie: movieObj.data()
       });
     });
-    console.log(dataArr);
     generateMovieHTML(dataArr);
-    
   } catch (error) {
     console.error('Movie data could not be retrieved: ' + error);
   }
 }
-//----------------------------------------------------------------------------
+//------------------------------------------------------
 //Generate movie HTML 
   function generateMovieHTML(dataArr) {
     movieContainer.textContent = '';
@@ -32,7 +29,7 @@ async function getMovieData(dataCollection){
       new MovieUI(id, movie.title, movie.genre, movie.releaseDate, movie.description, movie.watched, movieContainer);
     }
   }
-//----------------------------------------------------------------------------
+//------------------------------------------------------
 //Movie template class
 class MovieUI {
   constructor(id, title, genre, releaseDate, description, watched, parent) {
@@ -94,7 +91,6 @@ async function searchMovie() {
   try {
     const movie = await checkMovieExists(movieSearch);
     if(movie){
-      console.log(movie.data());
       movieContainer.textContent = '';
       new MovieUI(movie.id, movie.data().title, movie.data().genre, movie.data().releaseDate, movie.data().description, movie.data().watched, movieContainer);
     } else {
@@ -119,7 +115,6 @@ async function searchMovieCategory(cat) {
         movie: movieObj.data()
       });
     })
-    console.log(dataArr);
 
     if(dataArr.length > 0){
       movieContainer.textContent = '';
@@ -151,19 +146,9 @@ async function updateWatchedStatus(dataCollection, id){
   try {
     const movie = await getDoc(doc(db, dataCollection, id));
     const watchedStatus = movie.data().watched;
-
     await updateDoc(doc(db, dataCollection, id), {
       watched: !watchedStatus
     });
-    /* if (!watchedStatus) {
-      await updateDoc(doc(db, dataCollection, id), {
-        watched: true
-      });
-    } else {
-        await updateDoc(doc(db, dataCollection, id), {
-          watched: false
-        });
-      } */
   } catch (error) {
     console.error('Watched status could not be updated: ' + error);
   }

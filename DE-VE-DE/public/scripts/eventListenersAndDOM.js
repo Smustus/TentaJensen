@@ -4,6 +4,9 @@
 import { searchMovie, checkMovieExists, addMovieDB, searchMovieCategory } from './movies.js';
 //----------------------------------------------------------------------------
 //DOM elements, organized in group with regards to their page location
+const introSection = document.querySelector('.header__introSection');
+const introBtn = document.querySelector('.header__introBtn');
+const hideBtn = document.querySelector('.header__hideBtn');
 const titleInput = document.querySelector('.movieTitleInput');
 const genreInput = document.querySelector('.movieGenre');
 const yearInput = document.querySelector('.movieReleaseYear');
@@ -17,33 +20,38 @@ const movieSearch = document.querySelector('.main__searchMovieInput');
 const movieSearchBtn = document.querySelector('.main__searchMovieBtn');
 //----------------------------------------------------------------------------
 //Event Listeners (EL)
-//EL to search for a movie title
-movieSearchBtn.addEventListener('click', () => {
-  searchMovie();
-});
-movieSearch.addEventListener('keyup', (e) => {
-  if(e.key === 'Enter'){
-  searchMovie();
+//EL troll subscripe button
+introBtn.addEventListener('click', () => {
+  if(introBtn.textContent === 'Subscribe now!'){
+    return introBtn.textContent = 'You what?'
+  }
+  if(introBtn.textContent === 'You what?'){
+    return introBtn.textContent = 'Do something better with your money';
+  }
+  if(introBtn.textContent === 'Do something better with your money'){
+    return introBtn.textContent = 'Press this if you´re a fool'
+  }
+  if(introBtn.textContent === 'Press this if you´re a fool'){
+    return introBtn.textContent = 'Subscribe now!'
   }
 });
-//----------------------------------------------------------------------------
-//EL for the nav container to find movies with respective genres/categories
-navSection.addEventListener('click', (e) => {
-  if (e.target.classList.contains('nav__categoryAction')) {
-    searchMovieCategory('action');
-  } else if (e.target.classList.contains('nav__categoryComedy')) {
-    searchMovieCategory('comedy');
-  } else if (e.target.classList.contains('nav__categoryDrama')) {
-    searchMovieCategory('drama');
-  } else if (e.target.classList.contains('nav__categoryFantasy')) {
-    searchMovieCategory('fantasy');
-  } else if (e.target.classList.contains('nav__categorySci-Fi')) {
-    searchMovieCategory('sci-fi');
-  } else if (e.target.classList.contains('nav__categoryOther')) {
-    searchMovieCategory('other');
-  } 
+//------------------------------------------------------
+//EL to hide the info text
+hideBtn.addEventListener('click', () => {
+  if(introSection.classList.contains('header__animationOut')){
+    introSection.classList.remove('header__animationOut')
+    introSection.classList.add('header__animationIn')
+    
+  } else {
+    introSection.classList.remove('header__animationIn')
+    introSection.classList.add('header__animationOut')
+  }
+  setTimeout(() => {
+    introSection.classList.toggle('hidden');
+    introSection.classList.contains('header__animationOut') ? hideBtn.innerHTML = '&#11167;' : hideBtn.innerHTML = '&#11165;'
+  }, 600);
 });
-//----------------------------------------------------------------------------
+//------------------------------------------------------
 //EL to add a movie to the database unless it already exist
 addMovieBtn.addEventListener('click', async () => {
   try {
@@ -77,6 +85,33 @@ addMovieBtn.addEventListener('click', async () => {
     }
   } catch (error) {
     console.error('Movie could not be added: ' + error);
+  }
+});
+//------------------------------------------------------
+//EL for the nav container to find movies with respective genres/categories
+navSection.addEventListener('click', (e) => {
+  if (e.target.classList.contains('nav__categoryAction')) {
+    searchMovieCategory('action');
+  } else if (e.target.classList.contains('nav__categoryComedy')) {
+    searchMovieCategory('comedy');
+  } else if (e.target.classList.contains('nav__categoryDrama')) {
+    searchMovieCategory('drama');
+  } else if (e.target.classList.contains('nav__categoryFantasy')) {
+    searchMovieCategory('fantasy');
+  } else if (e.target.classList.contains('nav__categorySci-Fi')) {
+    searchMovieCategory('sci-fi');
+  } else if (e.target.classList.contains('nav__categoryOther')) {
+    searchMovieCategory('other');
+  } 
+});
+//------------------------------------------------------
+//EL to search for a movie title
+movieSearchBtn.addEventListener('click', () => {
+  searchMovie();
+});
+movieSearch.addEventListener('keyup', (e) => {
+  if(e.key === 'Enter'){
+  searchMovie();
   }
 });
 //----------------------------------------------------------------------------
