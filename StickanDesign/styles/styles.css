@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Lilita+One&display=swap');
+
+:root {
+  --Red: #FF1212;
+  --DarkRed: #B51515;
+  --DarkerRed: #951414;
+
+  --SoftGreen: #C8E2D1;
+  --Green: #1DA84C;
+  --DarkGreen: #17883D;
+
+  --Orange: #DE803C;
+  --DarkOrange: #BE6C31;
+
+  --Grey: #DBDBDB;
+  --DarkGrey: #A5A5A5;
+
+  --SoftPink: #E2A5B7;
+  --Pink: #D392A5;
+
+  --SoftBlue: #5D9AD3;
+  --Blue: #4B83B7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px dotted lightcoral;
+}
+
+body {
+  width: 100vw;
+  min-width: 350px;
+  height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Lilita One', sans-serif;
+  line-height: 1.5;
+}
+
+p {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  color: white;
+  border-radius: 6px;
+}
+
+.redBtn {
+  background-color: var(--DarkRed);
+  border: 1px solid var(--DarkerRed);
+}
+
+.orangeBtn {
+  background-color: var(--Orange);
+  border: 1px solid var(--DarkOrange);
+}
+
+.greenBtn {
+  background-color: var(--Green);
+  border: 1px solid var(--DarkGreen);
+}
+
+input {
+  background-color: var(--Grey);
+  border: 1px solid var(--DarkGrey);
+  font-family: 'Karla', sans-serif;
+}
+
+.wrapper {
+  background-color: var(--SoftGreen);
+  padding: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 14%;
+  }
+
+  .loginSection{
+    border: 1px solid var(--DarkGreen);
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4%;
+
+    input, button {
+      margin: 2%;
+    }
+
+    p {
+      margin-bottom: 5%;
+      text-align: center;
+    }
+  }
+}
+
+.smallBtn {
+  font-family: 'Karla', sans-serif;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.midBtn {
+  font-family: 'Karla', sans-serif;
+  padding: 1rem 2rem;
+  font-size: 1.75rem;
+}
+
+.largeBtn {
+  font-family: 'Lilita One', sans-serif;
+  padding: 1rem 2rem;
+  font-size: 1.75rem;
+}
+
+.loginSection_inputFields {
+  padding: 1rem;
+  font-size: 1.125rem;
+  border-radius: 6px;
+}
+
+.dateInputFields {
+  padding: 1rem;
+  font-size: 1.125rem;
+  border-radius: 25px;
+}
