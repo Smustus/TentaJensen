@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../components/styles/buttons.css"> 
+  <link rel="stylesheet" href="../components/styles//containers.css"> 
+  <link rel="stylesheet" href="../components/styles/inputs&labels.css"> 
+  <link rel="stylesheet" href="../components/styles/texts&link.css"> 
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>Låna redskap</title>
+</head>
+<body>
+
+  <header class="header">
+    <button class="returnBtn largeBtn" onclick="window.location.href = 'StartPageLogin.html'">&#x3c; Tillbaka</button>
+    <h1 class="bookToolsPage_title">RESERVERA</h1>
+  </header>
+
+  <main class="main productContainer_Large">
+    <section class="productContainer_pictureSection">
+      <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
+    </section>
+    <section class="productContainer_textInfo">
+      <h3 class="product_title">Kakel-, klinkersskär</h3>
+      <p class="product_place">Plats: <b>4B</b></p>
+      <p class="product_status">Status: <span class="greenText"><b>Ledig</b></span></p>
+      <p class="product_returnText">Ledig fr.o.m. idag</p>
+      <label for="reserveFrom">Reservera från:</label>
+      <input type="date" id="reserveFrom" class="dateInputFields">
+      <label for="reserveTo">Reservera till:</label>
+      <input type="date" id="reserveTo" class="dateInputFields">
+      <button class="product_reserveBtn midBtn greenBtn" onclick="window.location.href = 'OverviewBorrowPage.html'">Reservera</button>
+    </section>
+  </main>
+  
+  
+  <script type="module" src="../scripts/script.js"></script>
+</body>
+</html>

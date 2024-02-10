@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Lilita+One&display=swap');
+
+:root {
+  --Red: #FF1212;
+  --DarkRed: #B51515;
+  --DarkerRed: #951414;
+  --SoftGreen: #C8E2D1;
+  --Green: #1DA84C;
+  --DarkGreen: #17883D;
+  --Orange: #DE803C;
+  --DarkOrange: #BE6C31;
+  --Grey: #DBDBDB;
+  --DarkGrey: #A5A5A5;
+  --SoftPink: #E2A5B7;
+  --Pink: #D392A5;
+  --SoftBlue: #5D9AD3;
+  --Blue: #4B83B7;
+}
+
+/* --------------------------------------------------------------- */
+/* ----------------------GENERAL LABEL&INPUT---------------------- */
+
+label {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+input {
+  background-color: var(--Grey);
+  border: 1px solid var(--DarkGrey);
+  font-family: 'Karla', sans-serif;
+  font-size: 1.25rem;
+}
+
+input:focus-within {
+  outline: 2px solid var(--DarkGreen);
+}
+/* -------------------------------------------------------------- */
+/* -------------------------TEXT INPUT-------------------------- */
+.textInputFields {
+  padding: 1rem;
+  font-size: 1.125rem;
+  border-radius: 6px;
+}
+
+/* -------------------------------------------------------------- */
+/* --------------------------DATE INPUT-------------------------- */
+.dateInputFields {
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  margin-bottom: 2%;
+  font-size: 1.125rem;
+  text-align: center;
+  align-self: center;
+  width: 80%;
+}
+
+#reserveTo {
+  margin-bottom: 9%;
+}
+
+/* --------------------------------------------------------------- */
+/* -------------------------SEARCH INPUT-------------------------- */
+.searchContainer {
+  background-color: var(--Grey);
+  display: flex;
+  width: fit-content;
+  border-radius: 15px;
+  border: 1px solid var(--DarkGrey);
+  padding: 1%;
+}
+
+.searchContainer:focus-within {
+  outline: 2px solid var(--DarkGreen);
+}
+
+.searchField {
+  margin-left: 3%;
+  border-radius: 0 15px 15px 0;
+  border: none;
+  width: 100%;
+}
+
+.searchField:focus-within {
+  outline: none;
+}
+
+

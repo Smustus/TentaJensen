@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../components/styles/buttons.css"> 
+  <link rel="stylesheet" href="../components/styles//containers.css"> 
+  <link rel="stylesheet" href="../components/styles/inputs&labels.css"> 
+  <link rel="stylesheet" href="../components/styles/texts&link.css"> 
   <link rel="stylesheet" href="../styles/styles.css"> 
   <title>Stickans Verktygsbibliotek</title>
 </head>
 <body>
 
-  <div class="wrapper">
-    <h1 class="title">STICKANS VERKTYGSBIBLIOTEK</h1>
-    <section class="loginSection">
-      <input type="text" class="loginSection_inputFields" placeholder="Husnummer">
-      <input type="text" class="loginSection_inputFields" placeholder="Lösenord">
-      <p class="loginSection-forgotPassword">Glömt lösenord?</p>
-      <button class="largeBtn redBtn">Villkor</button>
-      <button class="largeBtn orangeBtn">Skapa konto</button>
-      <button class="largeBtn greenBtn">Logga in</button>
-    </section>
-  </div>
+  <header class="header loginPage_titleSection">
+    <h1 class="loginPage_title">STICKANS VERKTYGSBIBLIOTEK</h1>
+  </header>
+
+  <main class="loginSection main">
+    <input type="text" class="textInputFields" placeholder="Mobilnummer">
+    <input type="text" class="textInputFields" placeholder="Lösenord">
+    <a class="loginSection-forgotPassword" href="https://www.google.se/">Glömt lösenord?</a>
+    <button class="largeBtn redBtn">Villkor</button>
+    <button class="largeBtn orangeBtn createAccBtn" onclick="window.location.href = 'CreateAccountPage.html'">Skapa konto</button>
+    <button class="largeBtn greenBtn loginBtn" onclick="window.location.href = 'StartPageLoggedin.html'">Logga in</button>
+  </main>
 
   <script type="module" src="../scripts/script.js"></script>
 </body>

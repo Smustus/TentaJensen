@@ -18,46 +18,43 @@
   --Blue: #4B83B7;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  width: 100vw;
-  min-width: 350px;
-  height: 100vh;
-}
 /* ---------------------------------------- */
 
-label {
+h1, h2 {
+  font-family: 'Lilita One', sans-serif;
+  line-height: 1.5;
+}
+
+p, a, h3, h4 {
   font-family: 'Karla', sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2rem;
   text-align: center;
-  font-size: 1.8rem;
 }
 
-input {
-  background-color: var(--Grey);
-  border: 1px solid var(--DarkGrey);
-  font-family: 'Karla', sans-serif;
+h2 {
+  font-size: 1.7rem;
 }
 
-.loginInputFields {
-  margin: 1%;
-  padding: 0.7rem 1rem;
-  font-size: 1.125rem;
-  border-radius: 6px;
+h3 {
+  font-size: 1.7rem;
 }
 
-.dateInputFields {
-  margin: 1%;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.125rem;
-  border-radius: 25px;
-  margin-bottom: 5%;
+h4 {
+  font-size: 1.125rem; 
 }
 
-#reserveTo {
-  margin-bottom: 11%;
+p {
+  font-size: 1rem;
+}
+
+.greenText {
+  color: var(--DarkGreen);
+}
+
+.redText {
+  color: var(--Red);
 }

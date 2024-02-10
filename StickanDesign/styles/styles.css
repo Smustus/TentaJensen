@@ -27,101 +27,64 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px dotted lightcoral;
+  /* border: 1px dotted lightcoral; */
 }
 
 body {
   width: 100vw;
   min-width: 350px;
   height: 100vh;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Lilita One', sans-serif;
-  line-height: 1.5;
-}
-
-p {
-  font-family: 'Karla', sans-serif;
-  line-height: 1.5;
-}
-
-button {
-  color: white;
-  border-radius: 6px;
-}
-
-.redBtn {
-  background-color: var(--DarkRed);
-  border: 1px solid var(--DarkerRed);
-}
-
-.orangeBtn {
-  background-color: var(--Orange);
-  border: 1px solid var(--DarkOrange);
-}
-
-.greenBtn {
-  background-color: var(--Green);
-  border: 1px solid var(--DarkGreen);
-}
-
-input {
-  background-color: var(--Grey);
-  border: 1px solid var(--DarkGrey);
-  font-family: 'Karla', sans-serif;
-}
-
-.wrapper {
   background-color: var(--SoftGreen);
-  padding: 8%;
+  padding: 6%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 60px;
+}
+
+.main {
+  border: 1px solid var(--DarkGreen);
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4%;
+  height: fit-content;
+}
+
+.header {
+  grid-area: 1 / 1 / 5 / 9;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+}
+/* -------------------------------------------------------------------- */
+/* -----------------------------LOGIN PAGE----------------------------- */
 
-  h1 {
-    text-align: center;
-    margin-bottom: 14%;
+.loginPage_titleSection {
+  grid-area: 2 / 1 / 5 / 9;
+}
+
+.loginPage_title {
+  margin-bottom: 14%;
+  height: fit-content;
+}
+
+
+.loginSection {
+  grid-area: 5 / 1 / auto / 9;
+
+  input, button {
+    margin: 2%;
   }
 
-  .loginSection{
-    border: 1px solid var(--DarkGreen);
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 4%;
-
-    input, button {
-      margin: 2%;
-    }
-
-    p {
-      margin-bottom: 5%;
-      text-align: center;
-    }
+  a {
+    margin-bottom: 5%;
+    width: fit-content;
+    align-self: center;
   }
-}
 
-.smallBtn {
-  font-family: 'Karla', sans-serif;
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-}
-
-.midBtn {
-  font-family: 'Karla', sans-serif;
-  padding: 1rem 2rem;
-  font-size: 1.75rem;
-}
-
-.largeBtn {
-  font-family: 'Lilita One', sans-serif;
-  padding: 1rem 2rem;
-  font-size: 1.75rem;
 }
 
 .loginSection_inputFields {
@@ -130,8 +93,88 @@ input {
   border-radius: 6px;
 }
 
-.dateInputFields {
-  padding: 1rem;
-  font-size: 1.125rem;
-  border-radius: 25px;
+/* -------------------------------------------------------------------- */
+/* --------------------------CREATE ACC PAGE--------------------------- */
+.createAccPage_title {
+  margin: 4% 0% 2% 0%;
+}
+
+.createAccSection {
+  grid-area: 5 / 1 / auto / 9;
+
+  input {
+    margin-bottom: 4%;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* -----------------------------START PAGE----------------------------- */
+.startPage_titleSection {
+  grid-area: 2 / 1 / 5 / 9;
+}
+
+.startPage_btnSection {
+  grid-area: 4 / 1 / auto / 9;
+
+  input, button {
+    margin: 2%;
+  }
+
+  a {
+    margin-bottom: 5%;
+    text-align: center;
+  }
+}
+
+/* -------------------------------------------------------------------- */
+/* --------------------------SEARCH TOOL PAGE-------------------------- */
+.searchToolPage_textSection {
+  grid-area: 1 / 1 / 5 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: 1%;
+}
+
+.searchToolPage_title {
+  margin: 8% 0%;
+}
+
+.searchToolsSection {
+  grid-area: 5 / 1 / auto / 9;
+}
+
+/* -------------------------------------------------------------------- */
+/* --------------------------BOOK TOOL PAGE---------------------------- */
+.productContainer_Large {
+  grid-area: 4 / 1 / auto / 9;
+}
+
+.bookToolsPage_title {
+  margin-top: 8%;
+}
+
+/* -------------------------------------------------------------------- */
+/* --------------------OVERVIEW BOOKED&LEND PAGE----------------------- */
+.overviewSection {
+  grid-area: 4 / 1 / auto / 9;
+}
+
+.receiptContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.receiptContainer a {
+  text-align: center;
+  text-decoration: none;
+}
+
+.borrowPage_title, .lendPage_title {
+  margin-top: 10%;
 }

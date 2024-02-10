@@ -18,41 +18,33 @@
   --Blue: #4B83B7;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: 1px dotted lightcoral;
-}
-
-body {
-  width: 100vw;
-  min-width: 350px;
-  height: 100vh;
-}
 /* --------------------------------------------------------------- */
 /* -------------------SMALL PRODUCT CONTAINER--------------------- */
 
 .productContainer_Small {
   display: flex;
   justify-content: space-between;
-  min-width: 290px;
-  max-width: 390px;
+  min-width: 270px;
+  margin-bottom: 2%;
 
   .productContainer_pictureSection {
     margin-right: 1%;
     display: flex;
     align-items: center;
+    flex-shrink: 2;
   }
 
   .productContainer_pictureSection img {
-    max-height: 190px;
+    min-height: 150px;
+    width: 100%;
   }
 
   .productContainer_textInfo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
+    flex-shrink: 1;
   }
 
   .product_title, .product_text, .product_place, .product_status {
@@ -66,22 +58,18 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 7%;
-  background-color: var(--SoftGreen);
+  align-items: center;
 
   .productContainer_pictureSection {
-    margin-right: 1%;
     display: flex;
     justify-content: center;
     border-radius: 15px 15px 0 0;
-    width: 100%;
-    border-left: 1px solid var(--DarkGreen);
-    border-top: 1px solid var(--DarkGreen);
-    border-right: 1px solid var(--DarkGreen);
+    width: 70%;
+    flex-shrink: 2;
   }
 
   .productContainer_pictureSection img {
-    min-height: 340px;
+    min-height: 200px;
     width: 100%;
     border-radius: 15px 15px 0 0;
   }
@@ -92,31 +80,13 @@ body {
     justify-content: center;
     text-align: center;
     border-radius: 0 0 15px 15px ;
-    padding: 6%;
     background-color: white;
-    border-left: 1px solid var(--DarkGreen);
-    border-bottom: 1px solid var(--DarkGreen);
-    border-right: 1px solid var(--DarkGreen);
+    flex-shrink: 1;
+    width: 100%;
   }
 
   .product_title, .product_returnText, .product_place {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
   } 
-
-  .product_title {
-
-  }
-
-  .product_status {
-
-  }
-
-  .product_status, .product_returnText {
-
-  }
-
-  .product_place {
-
-  }
 }
 
