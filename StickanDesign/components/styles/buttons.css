@@ -1,29 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Lilita+One&display=swap');
-
+/* -------------------------------------------------------------------- */
+/* -------------------------UNSPECIFIC STYLING------------------------- */
 :root {
   --Red: #FF1212;
   --DarkRed: #B51515;
   --DarkerRed: #951414;
+
   --SoftGreen: #C8E2D1;
   --Green: #1DA84C;
   --DarkGreen: #17883D;
+
   --Orange: #DE803C;
   --DarkOrange: #BE6C31;
+
   --Grey: #DBDBDB;
   --DarkGrey: #A5A5A5;
+
   --SoftPink: #E2A5B7;
   --Pink: #D392A5;
+
   --SoftBlue: #5D9AD3;
   --Blue: #4B83B7;
 }
 
-/* ---------------------------------------- */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px dotted lightcoral; */
+}
+
+/* ---------------------------------------- */
 button {
   color: white;
   border-radius: 6px;
   cursor: pointer;
+  font-family: 'Lilita One', sans-serif;
 }
 
 .redBtn {
@@ -58,13 +72,11 @@ button {
 }
 
 .midBtn {
-  font-family: 'Karla', sans-serif;
   padding: 0.5rem 2rem;
   font-size: 1.75rem;
 }
 
 .largeBtn {
-  font-family: 'Lilita One', sans-serif;
   padding: 2rem 2.4rem;
   font-size: 1.75rem;
 }
@@ -87,4 +99,13 @@ button {
 
 .product_reserveBtn {
   margin: 0;
+}
+
+.swapOverviewBtn_borrow, .swapOverviewBtn_lend {
+  background-color: white;
+  color: black;
+  width: 100%;
+  border-top: 1px solid var(--DarkGreen);
+  border: 1px solid var(--DarkGreen);
+  border-radius: 15px 15px 0px 0px;
 }

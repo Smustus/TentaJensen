@@ -14,8 +14,13 @@
 
   <header class="header">
     <button class="returnBtn largeBtn" onclick="window.location.href = 'StartPageLoggedin.html'">&#x3c; Tillbaka</button>
-    <h1 class="lendPage_title">UTLÅNADE REDSKAP</h1>
+    <h1 class="lendPage_title">UTLÅNADE VERKTYG</h1>
   </header>
+
+  <nav class="nav">
+    <button class="swapOverviewBtn_borrow greyed smallBtn" onclick="window.location.href = 'OverviewBorrowPage.html'">Lånat</button>
+    <button class="swapOverviewBtn_lend noBottomBorder smallBtn" onclick="window.location.href = 'OverviewLendPage.html'">Utlånat</button>
+  </nav>
 
   <main class="main overviewSection">
     <article class="productContainer_Small">
@@ -24,9 +29,8 @@
       </section>
       <section class="productContainer_textInfo">
         <h4 class="product_title">Kakel-, klinkersskär</h3>
-          <p class="product_place">Återlämningsplats: <b>4B</b></p>
-          <p class="product_status">Återlämnas senast: <b>2026-06-22</b></p>
-        <button class="product_reserveBtn smallBtn redBtn">Återlämna</button>
+        <p class="product_place">Återlämningsplats: <b>4B</b></p>
+        <p class="product_status">Återlämnas senast: <b>2026-06-22</b></p>
       </section>
       <article class="receiptContainer">
         <a href=""><img src="../assets/icons/list.svg" alt="" srcset="">Kvitto</a>

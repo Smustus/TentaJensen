@@ -1,26 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Lilita+One&display=swap');
-
-:root {
-  --Red: #FF1212;
-  --DarkRed: #B51515;
-  --DarkerRed: #951414;
-  --SoftGreen: #C8E2D1;
-  --Green: #1DA84C;
-  --DarkGreen: #17883D;
-  --Orange: #DE803C;
-  --DarkOrange: #BE6C31;
-  --Grey: #DBDBDB;
-  --DarkGrey: #A5A5A5;
-  --SoftPink: #E2A5B7;
-  --Pink: #D392A5;
-  --SoftBlue: #5D9AD3;
-  --Blue: #4B83B7;
-}
-
 /* --------------------------------------------------------------- */
 /* -------------------SMALL PRODUCT CONTAINER--------------------- */
-
 .productContainer_Small {
   display: flex;
   justify-content: space-between;
@@ -51,9 +30,9 @@
     margin-bottom: 2%;
   } 
 }
+
 /* --------------------------------------------------------------- */
 /* ------------------LARGE PRODUCT CONTAINER---------------------- */
-
 .productContainer_Large {
   display: flex;
   flex-direction: column;

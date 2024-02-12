@@ -13,10 +13,34 @@
 <body>
 
   <header class="header">
-
+    <button class="returnBtn largeBtn" onclick="window.location.href = 'StartPageLoggedin.html'">&#x3c; Tillbaka</button>
+    <h1 class="lendPage_title">LÅNA UT VERKTYG</h1>
   </header>
 
-  <main class="main">
+  <main class="main lendToolsContainer">
+    <label for="imgUpload">Bild:</label>
+    <input id="imgUpload" class="textInputFields" type="file" required>
+    <input type="text" class="textInputFields" placeholder="Verktygsbenämning" required>
+    <textarea name="description" rows="3" cols="8" class="textInputFields" placeholder="Kortfattad verktygsbeskrivning" required></textarea>
+
+    <label for="toolCategory">Kategori:</label>
+    <br>
+    <select id="toolCategory" required>
+      <option value="plattsattning">Plattsättning</option>
+      <option value="snickeri">Snickeri</option>
+      <option value="mureri">Mureri&Puts</option>
+      <option value="maleri">Måleri</option>
+      <option value="multi">Multiverktyg</option>
+      <option value="annat">Annat</option>
+    </select>
+
+    <label for="reserveFrom">Låna ut fr.o.m. </label>
+      <input type="date" id="reserveFrom" class="dateInputFields" required>
+
+      <label for="reserveTo">Låna ut t.o.m. </label>
+      <input type="date" id="reserveTo" class="dateInputFields" required>
+
+    <button class="midBtn pinkBtn loginBtn" onclick="window.location.href = 'OverviewLendPage.html'">Påbörja utlån</button>
 
   </main>
   

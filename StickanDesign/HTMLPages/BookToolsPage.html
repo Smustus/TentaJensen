@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../components/styles/inputs&labels.css"> 
   <link rel="stylesheet" href="../components/styles/texts&link.css"> 
   <link rel="stylesheet" href="../styles/styles.css">
-  <title>Låna redskap</title>
+  <title>Låna verktyg</title>
 </head>
 <body>
 
@@ -27,9 +27,9 @@
       <p class="product_status">Status: <span class="greenText"><b>Ledig</b></span></p>
       <p class="product_returnText">Ledig fr.o.m. idag</p>
       <label for="reserveFrom">Reservera från:</label>
-      <input type="date" id="reserveFrom" class="dateInputFields">
+      <input type="date" id="reserveFrom" class="dateInputFields" required>
       <label for="reserveTo">Reservera till:</label>
-      <input type="date" id="reserveTo" class="dateInputFields">
+      <input type="date" id="reserveTo" class="dateInputFields" required>
       <button class="product_reserveBtn midBtn greenBtn" onclick="window.location.href = 'OverviewBorrowPage.html'">Reservera</button>
     </section>
   </main>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Lilita+One&display=swap');
-
+/* -------------------------------------------------------------------- */
+/* -------------------------UNSPECIFIC STYLING------------------------- */
 :root {
   --Red: #FF1212;
   --DarkRed: #B51515;
@@ -22,6 +23,7 @@
   --SoftBlue: #5D9AD3;
   --Blue: #4B83B7;
 }
+
 
 * {
   margin: 0;
@@ -59,18 +61,31 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.nav {
+  grid-area: 4 / 1 / 5 / 9;
+  display: flex;
+  justify-content: center;
+}
+
+.noBottomBorder {
+  border-bottom: none;
+}
+
+.greyed {
+  background-color: var(--Grey);
+}
 /* -------------------------------------------------------------------- */
 /* -----------------------------LOGIN PAGE----------------------------- */
 
 .loginPage_titleSection {
   grid-area: 2 / 1 / 5 / 9;
-}
 
-.loginPage_title {
-  margin-bottom: 14%;
-  height: fit-content;
+  .loginPage_title {
+    margin-bottom: 14%;
+    height: fit-content;
+  }
 }
-
 
 .loginSection {
   grid-area: 5 / 1 / auto / 9;
@@ -85,14 +100,12 @@ body {
     align-self: center;
   }
 
+  .loginSection_inputFields {
+    padding: 1rem;
+    font-size: 1.125rem;
+    border-radius: 6px;
+  }
 }
-
-.loginSection_inputFields {
-  padding: 1rem;
-  font-size: 1.125rem;
-  border-radius: 6px;
-}
-
 /* -------------------------------------------------------------------- */
 /* --------------------------CREATE ACC PAGE--------------------------- */
 .createAccPage_title {
@@ -119,23 +132,12 @@ body {
   input, button {
     margin: 2%;
   }
-
-  a {
-    margin-bottom: 5%;
-    text-align: center;
-  }
 }
 
 /* -------------------------------------------------------------------- */
 /* --------------------------SEARCH TOOL PAGE-------------------------- */
 .searchToolPage_textSection {
   grid-area: 1 / 1 / 5 / 9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: fit-content;
-  margin-bottom: 1%;
 }
 
 .searchToolPage_title {
@@ -159,7 +161,9 @@ body {
 /* -------------------------------------------------------------------- */
 /* --------------------OVERVIEW BOOKED&LEND PAGE----------------------- */
 .overviewSection {
-  grid-area: 4 / 1 / auto / 9;
+  grid-area: 5 / 1 / auto / 9;
+  border-radius: 0 0 15px 15px;
+  border-top: none;
 }
 
 .receiptContainer {
@@ -168,6 +172,7 @@ body {
   align-content: center;
   justify-content: center;
   width: fit-content;
+  margin-left: 1%;
 }
 
 .receiptContainer a {
@@ -178,3 +183,14 @@ body {
 .borrowPage_title, .lendPage_title {
   margin-top: 10%;
 }
+
+/* -------------------------------------------------------------------- */
+/* ---------------------------LEND TOOLS PAGE-------------------------- */
+.lendToolsContainer {
+  grid-area: 4 / 1 / auto / 9;
+
+  input, textarea, select {
+    margin-bottom: 4%;
+  }
+}
+
