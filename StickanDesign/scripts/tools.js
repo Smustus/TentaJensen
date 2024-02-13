@@ -8,7 +8,7 @@ let borrowedArr = JSON.parse(localStorage.getItem('borrowedTools')) || [];
 
 function genTools(){
   const main = document.querySelector('.main');
-  
+  fetch('./products.json')
   for(const item of products){
     const tool = new ToolUISmall(item.id, item.image, item.title, item.description, item.placement, item.borrowed, item.reservedTo); 
     main.appendChild(tool.tool);
