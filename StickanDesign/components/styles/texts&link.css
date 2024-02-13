@@ -6,6 +6,7 @@ html {
 h1, h2 {
   font-family: 'Lilita One', sans-serif;
   line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 p, a, h3, h4 {

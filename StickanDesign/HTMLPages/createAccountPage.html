@@ -19,12 +19,15 @@
   </header>
 
   <main class="createAccSection main">
-    <input type="text" class="textInputFields" placeholder="Mobilnummer" required>
-    <input type="password" class="textInputFields" placeholder="Lösenord" required>
-    <input type="text" class="textInputFields" placeholder="Namn" required>
-    <input type="text" class="textInputFields" placeholder="Husnummer" required>
-    <input type="email" class="textInputFields" placeholder="E-mail" required> 
-    <button class="largeBtn orangeBtn loginBtn" onclick="window.location.href = 'StartPageLoggedin.html'">Skapa konto</button>
+    <form action="users.html" method="GET">
+      <input name="phone" type="text" class="textInputFields" placeholder="Mobilnummer" required>
+      <input name="password" type="password" class="textInputFields" placeholder="Lösenord" required>
+      <input name="name" type="text" class="textInputFields" placeholder="Namn" required>
+      <input name="house" type="text" class="textInputFields" placeholder="Husnummer" required>
+      <input name="email" type="email" class="textInputFields" placeholder="E-mail" required> 
+      <button type="reset" class="midBtn redBtn loginBtn">Återställ</button>
+      <button type="submit" class="largeBtn orangeBtn loginBtn" onclick="window.location.href = 'StartPageLoggedin.html'">Skapa konto</button>
+    </form>
   </main>
 
   <script type="module" src="../scripts/main.js"></script>

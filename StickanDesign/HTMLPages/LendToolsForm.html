@@ -18,31 +18,48 @@
   </header>
 
   <main class="main lendToolsContainer">
-    <label for="imgUpload">Bild:</label>
-    <input id="imgUpload" class="textInputFields" type="file" required>
-    <input type="text" class="textInputFields" placeholder="Verktygsbenämning" required>
-    <textarea name="description" rows="3" cols="8" class="textInputFields" placeholder="Kortfattad verktygsbeskrivning" required></textarea>
+    <form action="#">
+      <label for="imgUpload">Bild:</label>
+      <input id="imgUpload" class="textInputFields" type="file">
+      <input type="text" id="toolTitle" class="textInputFields" placeholder="Verktygsbenämning" required>
+      <textarea name="description" id="description" rows="3" cols="8" class="textInputFields" placeholder="Kortfattad verktygsbeskrivning" required></textarea>
 
-    <label for="toolCategory">Kategori:</label>
-    <br>
-    <select id="toolCategory" required>
-      <option value="plattsattning">Plattsättning</option>
-      <option value="snickeri">Snickeri</option>
-      <option value="mureri">Mureri&Puts</option>
-      <option value="maleri">Måleri</option>
-      <option value="multi">Multiverktyg</option>
-      <option value="annat">Annat</option>
-    </select>
+      <label for="toolCategory">Kategori:</label>
+      <br>
+      <select id="toolCategory" required>
+        <option value="plattsattning">Plattsättning</option>
+        <option value="snickeri">Snickeri</option>
+        <option value="mureri">Mureri&Puts</option>
+        <option value="maleri">Måleri</option>
+        <option value="multi">Multiverktyg</option>
+        <option value="annat">Annat</option>
+      </select>
 
-    <label for="reserveFrom">Låna ut fr.o.m. </label>
-      <input type="date" id="reserveFrom" class="dateInputFields" required>
+      <label for="reserveFrom">Låna ut fr.o.m. </label>
+        <input type="date" id="reserveFrom" class="dateInputFields" required>
 
-      <label for="reserveTo">Låna ut t.o.m. </label>
-      <input type="date" id="reserveTo" class="dateInputFields" required>
+        <label for="reserveTo">Låna ut t.o.m. </label>
+        <input type="date" id="reserveTo" class="dateInputFields" required>
 
-    <button class="midBtn pinkBtn loginBtn" onclick="window.location.href = 'OverviewLendPage.html'">Påbörja utlån</button>
-
+      <button type="submit" class="largeBtn pinkBtn submitLendedToolBtn">Påbörja utlån</button>
+    </form>
   </main>
+
+  <script type="module">
+      const submitLendedToolBtn = document.querySelector('.submitLendedToolBtn'); 
+      submitLendedToolBtn.addEventListener('click', () => {
+        const title = document.querySelector('#toolTitle').value;
+        const image = document.querySelector('#imgUpload').files[0];
+        const category = document.querySelector('#toolCategory').value;
+        const description = document.querySelector('#description').value;
+        if(!title || !image || !category || !description){
+          return
+        } else {
+          registerNewLendedItem(title, category, description);
+        }
+      });
+
+  </script>
   
   <script type="module" src="../scripts/main.js"></script>
 </body>

@@ -73,7 +73,7 @@ button {
 }
 
 .midBtn {
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1.55rem;
 }
 
@@ -91,7 +91,6 @@ button {
 .returnBtn {
   color: rgb(0, 0, 0);
   background-color: var(--SoftGreen);
-  border: 1px solid var(--DarkGrey);
   width: fit-content;
   padding: 2%;
   border: none;

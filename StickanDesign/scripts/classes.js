@@ -152,7 +152,7 @@ class ToolUILarge {
 }
 
 class ToolUIBorrow {
-  constructor(id, image, title, description, placement, reservedTo){
+  constructor(id, image, title, placement, reservedTo){
 
     this.tool = document.createElement('article');
     this.tool.classList.add('productContainer_Small', `tool-${id}`);
@@ -169,10 +169,6 @@ class ToolUIBorrow {
 
     this.title = document.createElement('h4');
     this.title.textContent = title[0].toUpperCase() + title.slice(1);
-
-    this.description = document.createElement('p');
-    this.description.textContent = description;
-    this.description.classList.add('product_text');
 
     this.placement = document.createElement('p');
     this.placement.innerHTML = 'Återlämningsplats: <b>' + placement + '</b>';
@@ -208,7 +204,6 @@ class ToolUIBorrow {
     
     this.textSection.append(
       this.title,
-      this.description,
       this.placement,
       this.reservedTo,
       this.returnToolBtn
@@ -223,7 +218,7 @@ class ToolUIBorrow {
 }
 
 class ToolUILend {
-  constructor(id, image, title, description, placement, reservedTo){
+  constructor(id, image, title, placement, reservedTo){
 
     this.tool = document.createElement('article');
     this.tool.classList.add('productContainer_Small', `tool-${id}`);
@@ -241,10 +236,6 @@ class ToolUILend {
     this.title = document.createElement('h4');
     this.title.textContent = title[0].toUpperCase() + title.slice(1);
 
-    this.description = document.createElement('p');
-    this.description.textContent = description;
-    this.description.classList.add('product_text');
-
     this.placement = document.createElement('p');
     this.placement.innerHTML = 'Återlämningsplats: <b>' + placement + '</b>';
     this.placement.classList.add('product_place');
@@ -252,14 +243,6 @@ class ToolUILend {
     this.reservedTo = document.createElement('p');
     this.reservedTo.innerHTML = 'Återlämnas senast: <b>' + reservedTo + '</b>';
     this.reservedTo.classList.add('product_status');
-
-    this.returnToolBtn = document.createElement('button');
-    this.returnToolBtn.textContent = `Återlämna`;
-    this.returnToolBtn.classList.add('product_returnBtn', 'smallBtn', 'redBtn');
-
-    this.returnToolBtn.addEventListener('click', () => {
-      
-    });
 
     this.receiptContainer = document.createElement('article');
     this.receiptContainer.classList.add('receiptContainer');
@@ -279,10 +262,8 @@ class ToolUILend {
     
     this.textSection.append(
       this.title,
-      this.description,
       this.placement,
       this.reservedTo,
-      this.returnToolBtn
     );
 
     this.tool.append(
