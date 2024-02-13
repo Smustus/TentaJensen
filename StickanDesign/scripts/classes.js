@@ -1,4 +1,4 @@
-import { updateObj } from "./tools.js";
+import { updateToolData } from "./tools.js";
 
 class ToolUISmall {
   constructor(id, image, title, description, placement, borrowed, reservedTo){
@@ -124,10 +124,10 @@ class ToolUILarge {
         return;
       } else {
         if(!borrowed){
-          updateObj(id, reserveFromDate, reserveToDate, borrowed);
+          updateToolData(id, reserveFromDate, reserveToDate, borrowed);
       } else { 
           reserveFromDate = reservedTo;
-          updateObj(id, reserveFromDate, reserveToDate);
+          updateToolData(id, reserveFromDate, reserveToDate);
       }
       }
     });

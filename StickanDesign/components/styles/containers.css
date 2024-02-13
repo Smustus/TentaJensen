@@ -12,6 +12,7 @@
     align-items: center;
     flex-shrink: 2;
     width: 100%;
+    /* min-width: 120px; */
   }
 
   .productContainer_pictureSection img {
@@ -23,12 +24,27 @@
     flex-direction: column;
     justify-content: space-between;
     flex-shrink: 1;
+    width: 70%;
   }
 
   .product_title, .product_text, .product_place, .product_status {
     margin-bottom: 2%;
   } 
 }
+
+  .receiptContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: fit-content;
+    width: 20%;
+  }
+
+  .receiptContainer a {
+    text-align: center;
+    text-decoration: none;
+  }
 
 /* --------------------------------------------------------------- */
 /* ------------------LARGE PRODUCT CONTAINER---------------------- */

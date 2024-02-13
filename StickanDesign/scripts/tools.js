@@ -1,21 +1,20 @@
 import { products as baseProd } from "./products.js";
 import { ToolUISmall, ToolUIBorrow, ToolUILend } from "./classes.js";
 
-let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
-console.log(products);
+let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
 
-let borrowedArr = JSON.parse(localStorage.getItem('borrowedTools')) || [];
-
-function genTools(){
+function generateToolsSearchPage(){
   const main = document.querySelector('.main');
-  fetch('./products.json')
+  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
+  console.log(products);
+  /* let products = fetch('./products.json') */
   for(const item of products){
     const tool = new ToolUISmall(item.id, item.image, item.title, item.description, item.placement, item.borrowed, item.reservedTo); 
     main.appendChild(tool.tool);
   }  
 }
 
-function updateObj(id, reservedFrom, reservedTo, borrowed){
+function updateToolData(id, reservedFrom, reservedTo, borrowed){
   const findIndex = products.findIndex(obj => obj.id === id);
   if(findIndex >= 0){
     const updatedArr = [...products];
@@ -25,34 +24,38 @@ function updateObj(id, reservedFrom, reservedTo, borrowed){
       reservedTo: reservedTo,
       reservedFrom: reservedFrom,
     };
-    borrowedArr.push(updatedArr[findIndex]);
+    borrowedToolsArr.push(updatedArr[findIndex]);
    
     console.log(updatedArr);
-    console.log(borrowedArr);
+    console.log(borrowedToolsArr);
   localStorage.setItem('products', JSON.stringify(updatedArr));
-  localStorage.setItem('borrowedTools', JSON.stringify(borrowedArr));
+  localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
   }
 }
 
-function genBorrowed(){
+function generateBorrowedToolsHTML(){
+  let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
   const main = document.querySelector('.main');
-  console.log(borrowedArr);
-  for(const item of borrowedArr){
+  console.log(borrowedToolsArr);
+  for(const item of borrowedToolsArr){
     const tool = new ToolUIBorrow(item.id, item.image, item.title, item.description, item.placement, item.reservedTo); 
     main.appendChild(tool.tool);
   }  
 }
 
-function genLended(){
+function generateLendedToolsHTML(){
   const main = document.querySelector('.main');
-  console.log(borrowedArr);
-  for(const item of borrowedArr){
+  console.log(lendedToolsArr);
+  for(const item of lendedToolsArr){
     const tool = new ToolUILend(item.id, item.image, item.title, item.description, item.placement, item.reservedTo); 
     main.appendChild(tool.tool);
   }  
 }
 
 function resetAllStatus(){
+  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
+  onsole.log(products);
+
   /* localStorage.removeItem('products'); */
   localStorage.removeItem('borrowedTools');
  
@@ -71,4 +74,4 @@ function resetAllStatus(){
 
 
 
-export { genTools, updateObj, genBorrowed};
+export { generateToolsSearchPage, updateToolData, generateBorrowedToolsHTML, generateLendedToolsHTML};

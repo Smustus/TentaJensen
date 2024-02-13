@@ -63,7 +63,7 @@ body {
 }
 
 .nav {
-  grid-area: 4 / 1 / 5 / 9;
+  grid-area: 5 / 1 / 5 / 9;
   display: flex;
   justify-content: center;
 }
@@ -123,7 +123,7 @@ body {
 /* -------------------------------------------------------------------- */
 /* -----------------------------START PAGE----------------------------- */
 .startPage_titleSection {
-  grid-area: 2 / 1 / 5 / 9;
+  grid-area: 2 / 1 / 4 / 9;
 }
 
 .startPage_btnSection {
@@ -145,7 +145,7 @@ body {
 }
 
 .searchToolsSection {
-  grid-area: 5 / 1 / auto / 9;
+  grid-area: 6 / 1 / auto / 9;
 }
 
 /* -------------------------------------------------------------------- */
@@ -161,23 +161,9 @@ body {
 /* -------------------------------------------------------------------- */
 /* --------------------OVERVIEW BOOKED&LEND PAGE----------------------- */
 .overviewSection {
-  grid-area: 5 / 1 / auto / 9;
+  grid-area: 6 / 1 / auto / 9;
   border-radius: 0 0 15px 15px;
   border-top: none;
-}
-
-.receiptContainer {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  width: fit-content;
-  margin-left: 1%;
-}
-
-.receiptContainer a {
-  text-align: center;
-  text-decoration: none;
 }
 
 .borrowPage_title, .lendPage_title {

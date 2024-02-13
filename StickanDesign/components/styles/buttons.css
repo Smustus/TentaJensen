@@ -38,6 +38,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-family: 'Lilita One', sans-serif;
+  min-height: 50px;
 }
 
 .redBtn {
@@ -73,12 +74,12 @@ button {
 
 .midBtn {
   padding: 0.5rem 2rem;
-  font-size: 1.75rem;
+  font-size: 1.55rem;
 }
 
 .largeBtn {
-  padding: 2rem 2.4rem;
-  font-size: 1.75rem;
+  padding: 1.6rem 2.0rem;
+  font-size: 1.6rem;
 }
 
 .logoutBtn {
