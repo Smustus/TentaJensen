@@ -23,7 +23,7 @@
   </nav>
 
   <main class="main overviewSection">
-    <article class="productContainer_Small">
+   <!--  <article class="productContainer_Small">
       <section class="productContainer_pictureSection">
         <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
       </section>
@@ -51,11 +51,17 @@
         <button class="product_reserveBtn smallBtn redBtn">Återlämna</button>
       </section>
       <article class="receiptContainer">
-        <a href=""><img src="../assets/icons/list.svg" alt="" srcset="">Kvitto</a>
+        <a href=""><img src="../assets/icons/list.svg" alt="" srcset=""><p>Kvitto</p></a>
       </article>
-    </article>
+    </article> -->
   </main>
 
-  <script type="module" src="../scripts/script.js"></script>
+  <script type="module">
+    import { genBorrowed } from "../scripts/tools.js"
+    document.addEventListener('DOMContentLoaded', () => {
+      genBorrowed();
+  });
+  </script>
+  <script type="module" src="../scripts/main.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <body>
 
   <header class="searchToolPage_textSection header">
-    <button class="returnBtn largeBtn" onclick="window.location.href = 'StartPageLoggedin.html'">&#x3c; Tillbaka</button>
+    <button class="returnBtn largeBtn returnBtnSearchPage" onclick="window.location.href = 'StartPageLoggedin.html'">&#x3c; Tillbaka</button>
 
     <h1 class="searchToolPage_title">SÖK&LÅNA VERKTYG</h1>
 
@@ -24,33 +24,13 @@
   </header>
 
 
-  <main class="searchToolsSection main">
-    <article class="productContainer_Small">
-      <section class="productContainer_pictureSection">
-        <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
-      </section>
-      <section class="productContainer_textInfo">
-        <h4 class="product_title">Kakel-, klinkersskär</h3>
-        <p class="product_text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        <p class="product_place">Plats: <b>4B</b></p>
-        <p class="product_status">Status: <span class="greenText"><b>Ledig</b></span></p>
-        <button class="product_reserveBtn smallBtn greenBtn" onclick="window.location.href = 'BookToolsPage.html'">Reservera</button>
-      </section>
-    </article>
-    <article class="productContainer_Small">
-      <section class="productContainer_pictureSection">
-        <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
-      </section>
-      <section class="productContainer_textInfo">
-        <h4 class="product_title">Kakel-, klinkersskär</h3>
-        <p class="product_text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        <p class="product_place">Plats: <b>4B</b></p>
-        <p class="product_status">Status: <span class="greenText"><b>Ledig</b></span></p>
-        <button class="product_reserveBtn smallBtn greenBtn" onclick="window.location.href = 'BookToolsPage.html'">Reservera</button>
-      </section>
-    </article>
-  </main>
-
-  <script type="module" src="../scripts/script.js"></script>
+  <main class="searchToolsSection main"></main>
+  <script type="module">
+    import { genTools } from "../scripts/tools.js"
+    document.addEventListener('DOMContentLoaded', () => {
+      genTools();
+  });
+  </script>
+  <script type="module" src="../scripts/main.js"></script>
 </body>
 </html>

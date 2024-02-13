@@ -37,7 +37,13 @@
       </article>
     </article>
   </main>
-  
-  <script type="module" src="../scripts/script.js"></script>
+
+  <script type="module">
+    import { genLended } from "../scripts/tools.js"
+    document.addEventListener('DOMContentLoaded', () => {
+      genLended();
+  });
+  </script>
+  <script type="module" src="../scripts/main.js"></script>
 </body>
 </html>
