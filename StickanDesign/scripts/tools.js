@@ -1,28 +1,58 @@
 import { products as baseProd } from "./toolsList.js";
+import { fetchToolsData } from "./main.js";
 import { ToolUISmall, ToolUIBorrow, ToolUILend } from "./classes.js";
 import { generateUniqueId } from "./main.js"
 
 //-----------------------------------------------------------------------\\
 //FUNCTION CALLED WHENEVER THE "SEACH TOOLS PAGE" IS INITIATED
 //Searches for a local storage of tools(products) and generate respective HTML
-function generateToolsSearchPage(){
+async function generateToolsSearchPage(){
   const main = document.querySelector('.main');
-  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
+  if(!JSON.parse(localStorage.getItem('products'))){
+    const toolsData = await fetchToolsData();
+    console.log('Hej');
+    localStorage.setItem('products', JSON.stringify(toolsData));
+  }
+  let products = JSON.parse(localStorage.getItem('products'));
   console.log(products);
-  /* let products = fetch('./products.json') */
   for(const item of products){
     const tool = new ToolUISmall(item.id, item.image, item.title, item.description, item.placement, item.borrowed, item.reservedTo); 
-    main.appendChild(tool.tool);
+    main.append(tool.tool);
+  }  
+}
+
+//-----------------------------------------------------------------------\\
+//FUNCTION CALLED WHENEVER THE "BORROWED OVERVIEW PAGE" IS INITIATED
+//Searches for a local storage of borrowed tools and generate respective HTML
+function generateBorrowedToolsHTML(){
+  let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
+  const main = document.querySelector('.main');
+  console.log(borrowedToolsArr);
+  for(const item of borrowedToolsArr){
+    const tool = new ToolUIBorrow(item.id, item.image, item.title, item.placement, item.reservedTo); 
+    main.append(tool.tool);
+  }  
+}
+
+//-----------------------------------------------------------------------\\
+//FUNCTION CALLED WHENEVER THE "LENDED OVERVIEW PAGE" IS INITIATED
+//Searches for a local storage of lended tools and generate respective HTML
+function generateLendedToolsHTML(){
+  let lendedToolsArr = JSON.parse(localStorage.getItem('lendedToolsArr')) || [];
+  const main = document.querySelector('.main');
+  console.log(lendedToolsArr);
+  for(const item of lendedToolsArr){
+    const tool = new ToolUILend(item.id, item.image, item.title, item.placement, item.reservedTo); 
+    main.append(tool.tool);
   }  
 }
 
 //-----------------------------------------------------------------------\\
 //FUNCTION CALLED WHENEVER THE USER CHOOSES TO RESERVE/BORROW A TOOL
-//Searches for a local storage of tools(products) and borrowed tools and generate update according to user input
+//Searches for a local storage of tools(products) and borrowed tools and update data according to user input
 function updateToolData(id, reservedFrom, reservedTo, borrowed){
 
-  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
-  console.log(products);
+  let products = JSON.parse(localStorage.getItem('products'))
   let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
 
   const findIndex = products.findIndex(obj => obj.id === id);
@@ -38,45 +68,45 @@ function updateToolData(id, reservedFrom, reservedTo, borrowed){
    
     console.log(updatedArr);
     console.log(borrowedToolsArr);
-  localStorage.setItem('products', JSON.stringify(updatedArr));
-  localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
+    localStorage.setItem('products', JSON.stringify(updatedArr));
+    localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
   }
 }
 
 //-----------------------------------------------------------------------\\
-//FUNCTION CALLED WHENEVER THE "BORROWED OVERVIEW PAGE" IS INITIATED
-//Searches for a local storage of borrowed tools and generate respective HTML
-function generateBorrowedToolsHTML(){
-  let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
-  const main = document.querySelector('.main');
-  console.log(borrowedToolsArr);
-  for(const item of borrowedToolsArr){
-    const tool = new ToolUIBorrow(item.id, item.image, item.title, item.placement, item.reservedTo); 
-    main.appendChild(tool.tool);
-  }  
+//FUNCTION CALLED WHENEVER THE USER CHOOSES TO RETURN A BORROWED TOOL
+//Searches for a local storage of tools(products) and borrowed tools and updated data
+function returnTool(id){
+
+  let products = JSON.parse(localStorage.getItem('products'));
+  let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr'));
+
+  const findIndex = products.findIndex(obj => obj.id === id);
+  if(findIndex >= 0){
+    const updatedArr = [...products];
+    updatedArr[findIndex] = {
+      ...updatedArr[findIndex], 
+      borrowed: false,
+      reservedTo: null,
+      reservedFrom: null,
+    };
+    borrowedToolsArr.splice(borrowedToolsArr[findIndex], 1);
+   
+    console.log(borrowedToolsArr);
+    localStorage.setItem('products', JSON.stringify(updatedArr));
+    localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
+    generateBorrowedToolsHTML();
+    location.reload();
+    console.log('Då');
+  }
 }
 
 //-----------------------------------------------------------------------\\
 //FUNCTION CALLED WHENEVER THE "LENDED OVERVIEW PAGE" IS INITIATED
-//Searches for a local storage of lended tools and generate respective HTML
-function generateLendedToolsHTML(){
-  let lendedToolsArr = JSON.parse(localStorage.getItem('lendedToolsArr')) || [];
-  const main = document.querySelector('.main');
-  console.log(lendedToolsArr);
-  for(const item of lendedToolsArr){
-    const tool = new ToolUILend(item.id, item.image, item.title, item.placement, item.reservedTo); 
-    main.appendChild(tool.tool);
-  }  
-}
-
-//-----------------------------------------------------------------------\\
-//FUNCTION CALLED WHENEVER THE "LENDED OVERVIEW PAGE" IS INITIATED
-//Searches for a local storage of lended tools and generate respective HTML
+//Searches for a local storage of lended tools adds the new item to the array
 function registerNewLendedItem(title, category, description){
-  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
-  console.log(products);
-  let lendedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
-
+  let products = JSON.parse(localStorage.getItem('products'))
+  let lendedToolsArr = JSON.parse(localStorage.getItem('lendedToolsArr')) || [];
   const id = generateUniqueId();
 
   const updatedArr = [...products];
@@ -85,7 +115,7 @@ function registerNewLendedItem(title, category, description){
     id,
     title,
     borrowed: false,
-    image: '../assets/product-pictures/murslev.jpg',
+    image: '../assets/product-pictures/NoImage.jpg',
     category,
     description,
     placement: 'husnr',
@@ -97,20 +127,22 @@ function registerNewLendedItem(title, category, description){
     
   localStorage.setItem('products', JSON.stringify(updatedArr));
   localStorage.setItem('lendedToolsArr', JSON.stringify(lendedToolsArrUpdated));
-  window.location.href = 'OverviewLendPage.html'
+  window.location.href = '../HTMLPages/OverviewLendPage.html';
 }
 
 //-----------------------------------------------------------------------\\
 //FUNCTION TO RESET ALL TOOLS RESERVED STATUS BACK TO AVAILABLE
 //Searches for a local storage of tools(products) and resets their values
-function resetAllStatus(){
-  let products = JSON.parse(localStorage.getItem('products')) || localStorage.setItem('products', JSON.stringify(baseProd));
-  console.log(products);
+async function resetAllToolStatus(){
 
-  /* localStorage.removeItem('products'); */
+  localStorage.removeItem('products');
   localStorage.removeItem('borrowedToolsArr');
+  localStorage.removeItem('lendedToolsArr');
+
+  let products = JSON.parse(localStorage.getItem('products'));
+  console.log(products);
  
-  products.forEach((obj, index) => {
+  /* products.forEach((obj, index) => {
     const newValues = {
       ...obj, 
       borrowed: false,
@@ -119,10 +151,10 @@ function resetAllStatus(){
     };
     products[index] = newValues;
   });
-  localStorage.setItem('products', JSON.stringify(products));
+  localStorage.setItem('products', JSON.stringify(products)); */
 }
-/* resetAllStatus(); */
+/* resetAllToolStatus(); */
 
 
 
-export { generateToolsSearchPage, updateToolData, generateBorrowedToolsHTML, generateLendedToolsHTML, registerNewLendedItem };
+export { generateToolsSearchPage, generateBorrowedToolsHTML, generateLendedToolsHTML, updateToolData, returnTool,  registerNewLendedItem };

@@ -23,22 +23,6 @@
   </nav>
 
   <main class="main overviewSection">
-   <!--  <article class="productContainer_Small">
-      <section class="productContainer_pictureSection">
-        <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
-      </section>
-      <section class="productContainer_textInfo">
-        <h4 class="product_title">Kakel-, klinkersskär</h3>
-        <p class="product_text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        <p class="product_place">Återlämningsplats: <b>4B</b></p>
-        <p class="product_status">Återlämnas senast: <b>2026-06-22</b></p>
-        <button class="product_reserveBtn smallBtn redBtn">Återlämna</button>
-      </section>
-      <article class="receiptContainer">
-        <a href=""><img src="../assets/icons/list.svg" alt="" srcset="">Kvitto</a>
-      </article>
-    </article>
-
     <article class="productContainer_Small">
       <section class="productContainer_pictureSection">
         <img src="../assets/product-pictures/kakelskar.jpg" alt="kakelskär" srcset="">
@@ -48,19 +32,23 @@
         <p class="product_text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
         <p class="product_place">Återlämningsplats: <b>4B</b></p>
         <p class="product_status">Återlämnas senast: <b>2026-06-22</b></p>
-        <button class="product_reserveBtn smallBtn redBtn">Återlämna</button>
+        <button class="product_reserveBtn smallBtn redBtn returnToolBtn">Återlämna</button>
       </section>
       <article class="receiptContainer">
-        <a href=""><img src="../assets/icons/list.svg" alt="" srcset=""><p>Kvitto</p></a>
+        <a href=""><img src="../assets/icons/list.svg" alt="" srcset="">Kvitto</a>
       </article>
-    </article> -->
+    </article>
   </main>
 
   <script type="module">
     import { generateBorrowedToolsHTML } from "../scripts/tools.js"
+    
     document.addEventListener('DOMContentLoaded', () => {
       generateBorrowedToolsHTML();
-  });
+
+     
+    });
+
   </script>
   <script type="module" src="../scripts/main.js"></script>
 </body>

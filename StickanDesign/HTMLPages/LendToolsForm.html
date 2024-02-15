@@ -41,18 +41,18 @@
         <label for="reserveTo">Låna ut t.o.m. </label>
         <input type="date" id="reserveTo" class="dateInputFields" required>
 
-      <button type="submit" class="largeBtn pinkBtn submitLendedToolBtn">Påbörja utlån</button>
+      <button class="largeBtn pinkBtn submitLendedToolBtn">Påbörja utlån</button>
     </form>
   </main>
 
   <script type="module">
+    import { registerNewLendedItem } from "../scripts/tools.js"
       const submitLendedToolBtn = document.querySelector('.submitLendedToolBtn'); 
       submitLendedToolBtn.addEventListener('click', () => {
         const title = document.querySelector('#toolTitle').value;
-        const image = document.querySelector('#imgUpload').files[0];
         const category = document.querySelector('#toolCategory').value;
         const description = document.querySelector('#description').value;
-        if(!title || !image || !category || !description){
+        if(!title || !category || !description){
           return
         } else {
           registerNewLendedItem(title, category, description);

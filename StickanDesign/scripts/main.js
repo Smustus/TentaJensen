@@ -1,15 +1,24 @@
 //-----------------------------------------------------------------------\\
-//SOMEDAY THIS MIGHT CONTAIN USEFUL CODE
 
 function generateUniqueId(){
   let products = JSON.parse(localStorage.getItem('products'));
-  console.log(products);
   let randomNum;
-  
-  console.log(products);
   do {
     randomNum = Math.ceil(Math.random() * 100);
   } while (products.some(product => product.id === randomNum));
       return randomNum;
 }
-console.log(generateUniqueId());
+
+async function fetchToolsData(){
+  try {
+    const data = await fetch('../scripts/products.json');
+    const tools = await data.json()
+    return tools.products;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+console.log(fetchToolsData());
+
+export { generateUniqueId, fetchToolsData };

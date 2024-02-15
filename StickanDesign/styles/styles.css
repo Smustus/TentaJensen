@@ -43,17 +43,6 @@ body {
   grid-auto-rows: 60px;
 }
 
-.main {
-  border: 1px solid var(--DarkGreen);
-  background-color: white;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 4%;
-  height: fit-content;
-}
-
 .header {
   grid-area: 1 / 1 / 5 / 9;
   height: fit-content;
@@ -66,6 +55,25 @@ body {
   grid-area: 5 / 1 / 5 / 9;
   display: flex;
   justify-content: center;
+}
+
+.main {
+  border: 1px solid var(--DarkGreen);
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4%;
+  height: fit-content;
+}
+
+footer {
+  grid-area: auto / 1 / auto / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .noBottomBorder {

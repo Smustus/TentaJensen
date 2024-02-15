@@ -1,4 +1,4 @@
-import { updateToolData } from "./tools.js";
+import { updateToolData, returnTool } from "./tools.js";
 
 class ToolUISmall {
   constructor(id, image, title, description, placement, borrowed, reservedTo){
@@ -183,7 +183,8 @@ class ToolUIBorrow {
     this.returnToolBtn.classList.add('product_returnBtn', 'smallBtn', 'redBtn');
 
     this.returnToolBtn.addEventListener('click', () => {
-      
+      console.log('Hej');
+      returnTool(id);
     });
 
     this.receiptContainer = document.createElement('article');
