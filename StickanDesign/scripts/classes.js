@@ -38,6 +38,10 @@ class ToolUISmall {
     this.reserveBtn.addEventListener('click', () => {
       const main = document.querySelector('.main');
       main.textContent = '';
+      main.style.gridArea = '5 / 1 / auto / 9';
+      const searchField = document.querySelector('.searchContainer');
+      searchField.style.display = 'none';
+      
       const returnBtn = document.querySelector('.returnBtnSearchPage');
       returnBtn.setAttribute('onclick', "window.location.href = 'SearchToolsPage.html'")
       const tool = new ToolUILarge(id, image, title, placement, borrowed, reservedTo);
@@ -151,9 +155,8 @@ class ToolUILarge {
   }
 }
 
-class ToolUIBorrow {
-  constructor(id, image, title, placement, reservedTo){
-
+class ToolUILendBorrow {
+  constructor(id, image, title, placement, reservedTo) {
     this.tool = document.createElement('article');
     this.tool.classList.add('productContainer_Small', `tool-${id}`);
 
@@ -178,15 +181,6 @@ class ToolUIBorrow {
     this.reservedTo.innerHTML = 'Återlämnas senast: <b>' + reservedTo + '</b>';
     this.reservedTo.classList.add('product_status');
 
-    this.returnToolBtn = document.createElement('button');
-    this.returnToolBtn.textContent = `Återlämna`;
-    this.returnToolBtn.classList.add('product_returnBtn', 'smallBtn', 'redBtn');
-
-    this.returnToolBtn.addEventListener('click', () => {
-      console.log('Hej');
-      returnTool(id);
-    });
-
     this.receiptContainer = document.createElement('article');
     this.receiptContainer.classList.add('receiptContainer');
 
@@ -206,8 +200,7 @@ class ToolUIBorrow {
     this.textSection.append(
       this.title,
       this.placement,
-      this.reservedTo,
-      this.returnToolBtn
+      this.reservedTo
     );
 
     this.tool.append(
@@ -218,60 +211,26 @@ class ToolUIBorrow {
   }
 }
 
-class ToolUILend {
-  constructor(id, image, title, placement, reservedTo){
+class ToolUIBorrow extends ToolUILendBorrow {
+  constructor(id, image, title, placement, reservedTo) {
+    super(id, image, title, placement, reservedTo);
 
-    this.tool = document.createElement('article');
-    this.tool.classList.add('productContainer_Small', `tool-${id}`);
+    this.returnToolBtn = document.createElement('button');
+    this.returnToolBtn.textContent = `Återlämna`;
+    this.returnToolBtn.classList.add('product_returnBtn', 'smallBtn', 'redBtn');
 
-    this.imgSection = document.createElement('section');
-    this.imgSection.classList.add('productContainer_pictureSection');
+    this.returnToolBtn.addEventListener('click', () => {
+      console.log('Hej');
+      returnTool(id);
+    });
 
-    this.img = document.createElement('img');
-    this.img.src = image;
-    this.imgSection.append(this.img);
+    this.textSection.appendChild(this.returnToolBtn);
+  }
+}
 
-    this.textSection = document.createElement('section');
-    this.textSection.classList.add('productContainer_textInfo');
-
-    this.title = document.createElement('h4');
-    this.title.textContent = title[0].toUpperCase() + title.slice(1);
-
-    this.placement = document.createElement('p');
-    this.placement.innerHTML = 'Återlämningsplats: <b>' + placement + '</b>';
-    this.placement.classList.add('product_place');
-
-    this.reservedTo = document.createElement('p');
-    this.reservedTo.innerHTML = 'Återlämnas senast: <b>' + reservedTo + '</b>';
-    this.reservedTo.classList.add('product_status');
-
-    this.receiptContainer = document.createElement('article');
-    this.receiptContainer.classList.add('receiptContainer');
-
-    this.receipt = document.createElement('a');
-    this.receipt.href = '#';
-
-    this.receiptImg = document.createElement('img');
-    this.receiptImg.src = "../assets/icons/list.svg";
-    this.receiptImg.alt = 'Receipt';
-
-    this.receiptText = document.createElement('p');
-    this.receiptText.textContent = 'Kvitto';
-    
-    this.receipt.append(this.receiptImg, this.receiptText);
-    this.receiptContainer.append(this.receipt);
-    
-    this.textSection.append(
-      this.title,
-      this.placement,
-      this.reservedTo,
-    );
-
-    this.tool.append(
-      this.imgSection,
-      this.textSection,
-      this.receiptContainer 
-    );
+class ToolUILend extends ToolUILendBorrow {
+  constructor(id, image, title, placement, reservedTo) {
+    super(id, image, title, placement, reservedTo);
   }
 }
 

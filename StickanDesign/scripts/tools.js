@@ -1,4 +1,3 @@
-import { products as baseProd } from "./toolsList.js";
 import { fetchToolsData } from "./main.js";
 import { ToolUISmall, ToolUIBorrow, ToolUILend } from "./classes.js";
 import { generateUniqueId } from "./main.js"
@@ -8,6 +7,8 @@ import { generateUniqueId } from "./main.js"
 //Searches for a local storage of tools(products) and generate respective HTML
 async function generateToolsSearchPage(){
   const main = document.querySelector('.main');
+  const searchFieldInput = document.querySelector('.searchField').value.toLowerCase();
+
   if(!JSON.parse(localStorage.getItem('products'))){
     const toolsData = await fetchToolsData();
     console.log('Hej');
@@ -15,6 +16,15 @@ async function generateToolsSearchPage(){
   }
   let products = JSON.parse(localStorage.getItem('products'));
   console.log(products);
+
+  if(searchFieldInput){
+    products = products.filter((tool) => {
+      return tool.title.toLowerCase().includes(searchFieldInput);
+    });
+    console.log(products);
+  }
+  
+  main.innerHTML = '';
   for(const item of products){
     const tool = new ToolUISmall(item.id, item.image, item.title, item.description, item.placement, item.borrowed, item.reservedTo); 
     main.append(tool.tool);

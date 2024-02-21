@@ -68,14 +68,6 @@ body {
   height: fit-content;
 }
 
-footer {
-  grid-area: auto / 1 / auto / -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 .noBottomBorder {
   border-bottom: none;
 }

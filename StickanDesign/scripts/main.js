@@ -19,6 +19,5 @@ async function fetchToolsData(){
     console.log(error);
   }
 }
-console.log(fetchToolsData());
 
 export { generateUniqueId, fetchToolsData };

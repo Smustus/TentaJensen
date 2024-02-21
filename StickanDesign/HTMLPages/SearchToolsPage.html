@@ -26,9 +26,15 @@
   <main class="searchToolsSection main"></main>
   
   <script type="module">
+
     import { generateToolsSearchPage } from "../scripts/tools.js"
+    
     document.addEventListener('DOMContentLoaded', () => {
       generateToolsSearchPage();
+    });
+
+    document.querySelector('.searchField').addEventListener('keydown', (e) => {
+      e.key === 'Enter' ? generateToolsSearchPage() : null;
     });
   </script>
   <script type="module" src="../scripts/main.js"></script>
