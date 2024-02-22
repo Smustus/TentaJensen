@@ -11,7 +11,6 @@ async function generateToolsSearchPage(){
 
   if(!JSON.parse(localStorage.getItem('products'))){
     const toolsData = await fetchToolsData();
-    console.log('Hej');
     localStorage.setItem('products', JSON.stringify(toolsData));
   }
   let products = JSON.parse(localStorage.getItem('products'));
@@ -61,26 +60,26 @@ function generateLendedToolsHTML(){
 //FUNCTION CALLED WHENEVER THE USER CHOOSES TO RESERVE/BORROW A TOOL
 //Searches for a local storage of tools(products) and borrowed tools and update data according to user input
 function updateToolData(id, reservedFrom, reservedTo, borrowed){
-
   let products = JSON.parse(localStorage.getItem('products'))
   let borrowedToolsArr = JSON.parse(localStorage.getItem('borrowedToolsArr')) || [];
-
-  const findIndex = products.findIndex(obj => obj.id === id);
-  if(findIndex >= 0){
-    const updatedArr = [...products];
-    updatedArr[findIndex] = {
-      ...updatedArr[findIndex], 
-      borrowed: !borrowed,
-      reservedTo: reservedTo,
-      reservedFrom: reservedFrom,
-    };
-    borrowedToolsArr.push(updatedArr[findIndex]);
-   
-    console.log(updatedArr);
-    console.log(borrowedToolsArr);
-    localStorage.setItem('products', JSON.stringify(updatedArr));
-    localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
-  }
+  if(borrowed === false){
+    const findIndex = products.findIndex(obj => obj.id === id);
+    if(findIndex >= 0){
+      const updatedArr = [...products];
+      updatedArr[findIndex] = {
+        ...updatedArr[findIndex], 
+        borrowed: !borrowed,
+        reservedTo: reservedTo,
+        reservedFrom: reservedFrom,
+      };
+      borrowedToolsArr.push(updatedArr[findIndex]);
+     
+      console.log(updatedArr);
+      console.log(borrowedToolsArr);
+      localStorage.setItem('products', JSON.stringify(updatedArr));
+      localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
+    }
+  }  
 }
 
 //-----------------------------------------------------------------------\\
@@ -107,7 +106,6 @@ function returnTool(id){
     localStorage.setItem('borrowedToolsArr', JSON.stringify(borrowedToolsArr));
     generateBorrowedToolsHTML();
     location.reload();
-    console.log('Då');
   }
 }
 

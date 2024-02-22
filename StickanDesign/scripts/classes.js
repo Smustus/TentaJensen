@@ -118,8 +118,14 @@ class ToolUILarge {
 
     this.reserveBtnLarge = document.createElement('button');
     this.reserveBtnLarge.textContent = `Reservera`;
-    borrowed ? this.reserveBtnLarge.classList.add('product_reserveBtn', 'midBtn', 'orangeBtn') : this.reserveBtnLarge.classList.add('product_reserveBtn', 'midBtn', 'greenBtn');
-    this.reserveBtnLarge.setAttribute('onclick', "window.location.href = 'OverviewBorrowPage.html'");
+    if(borrowed){
+      this.reserveBtnLarge.classList.add('product_reserveBtn', 'midBtn', 'orangeBtn');
+      this.reserveBtnLarge.disabled = true;
+      this.reserveBtnLarge.style.opacity = '0.5';
+    } else {
+      this.reserveBtnLarge.classList.add('product_reserveBtn', 'midBtn', 'greenBtn');
+      this.reserveBtnLarge.setAttribute('onclick', "window.location.href = 'OverviewBorrowPage.html'");
+    }
 
     this.reserveBtnLarge.addEventListener('click', () => {
       let reserveFromDate = this.reserveFromInput.value;
@@ -132,7 +138,7 @@ class ToolUILarge {
       } else { 
           reserveFromDate = reservedTo;
           updateToolData(id, reserveFromDate, reserveToDate);
-      }
+        }
       }
     });
     

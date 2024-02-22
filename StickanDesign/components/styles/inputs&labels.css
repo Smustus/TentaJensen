@@ -78,6 +78,7 @@ select {
   border-radius: 15px;
   border: 1px solid var(--DarkGrey);
   padding: 1%;
+  margin-bottom: 10%;
 }
 
 .searchContainer:focus-within {

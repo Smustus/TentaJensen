@@ -35,16 +35,15 @@
 body {
   width: 100vw;
   min-width: 350px;
-  height: 100vh;
   background-color: var(--SoftGreen);
   padding: 6%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-auto-rows: 60px;
+  grid-auto-rows: auto;
 }
 
 .header {
-  grid-area: 1 / 1 / 5 / 9;
+  grid-column: 1 / span 8;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -52,12 +51,13 @@ body {
 }
 
 .nav {
-  grid-area: 5 / 1 / 5 / 9;
+  grid-column: 1 / span 8;
   display: flex;
   justify-content: center;
 }
 
 .main {
+  grid-column: 1 / span 8;
   border: 1px solid var(--DarkGreen);
   background-color: white;
   border-radius: 15px;
@@ -79,16 +79,14 @@ body {
 /* -----------------------------LOGIN PAGE----------------------------- */
 
 .loginPage_titleSection {
-  grid-area: 2 / 1 / 5 / 9;
 
   .loginPage_title {
-    margin-bottom: 14%;
     height: fit-content;
+    margin-bottom: 10%;
   }
 }
 
 .loginSection {
-  grid-area: 5 / 1 / auto / 9;
 
   input, button {
     margin: 2%;
@@ -112,8 +110,11 @@ body {
   margin: 4% 0% 2% 0%;
 }
 
+.createAccPage_subtitle {
+  margin: 0% 0% 4% 0%;
+}
+
 .createAccSection {
-  grid-area: 5 / 1 / auto / 9;
 
   input {
     margin-bottom: 4%;
@@ -123,11 +124,10 @@ body {
 /* -------------------------------------------------------------------- */
 /* -----------------------------START PAGE----------------------------- */
 .startPage_titleSection {
-  grid-area: 2 / 1 / 4 / 9;
+  margin-bottom: 2%;
 }
 
 .startPage_btnSection {
-  grid-area: 4 / 1 / auto / 9;
 
   input, button {
     margin: 2%;
@@ -136,24 +136,12 @@ body {
 
 /* -------------------------------------------------------------------- */
 /* --------------------------SEARCH TOOL PAGE-------------------------- */
-.searchToolPage_textSection {
-  grid-area: 1 / 1 / 5 / 9;
-}
-
 .searchToolPage_title {
   margin: 8% 0%;
 }
 
-.searchToolsSection {
-  grid-area: 6 / 1 / auto / 9;
-}
-
 /* -------------------------------------------------------------------- */
 /* --------------------------BOOK TOOL PAGE---------------------------- */
-.bookToolsSection {
-  grid-area: 4 / 1 / auto / 9;
-}
-
 .bookToolsPage_title {
   margin-top: 8%;
 }
@@ -161,19 +149,18 @@ body {
 /* -------------------------------------------------------------------- */
 /* --------------------OVERVIEW BOOKED&LEND PAGE----------------------- */
 .overviewSection {
-  grid-area: 6 / 1 / auto / 9;
   border-radius: 0 0 15px 15px;
   border-top: none;
 }
 
 .borrowPage_title, .lendPage_title {
-  margin-top: 10%;
+  margin-top: 6%;
+  margin-bottom: 10%;
 }
 
 /* -------------------------------------------------------------------- */
 /* ---------------------------LEND TOOLS PAGE-------------------------- */
 .lendToolsContainer {
-  grid-area: 4 / 1 / auto / 9;
 
   input, textarea, select {
     margin-bottom: 4%;
