@@ -226,7 +226,6 @@ class ToolUIBorrow extends ToolUILendBorrow {
     this.returnToolBtn.classList.add('product_returnBtn', 'smallBtn', 'redBtn');
 
     this.returnToolBtn.addEventListener('click', () => {
-      console.log('Hej');
       returnTool(id);
     });
 
